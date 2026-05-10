@@ -1,1252 +1,2345 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SMLT Engineering – Industrial Filtration & Process Equipment</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet"/>
-<style>
-:root {
-  --navy: #0D1B2A;
-  --navy-mid: #1A2F46;
-  --navy-light: #243d57;
-  --accent: #E8650A;
-  --accent-light: #F97316;
-  --accent-pale: #fff3e8;
-  --steel: #607D8B;
-  --steel-light: #B0BEC5;
-  --offwhite: #F8F6F1;
-  --white: #FFFFFF;
-  --text: #1A2332;
-  --text-mid: #445566;
-  --text-muted: #7A8FA0;
-  --border: rgba(13, 27, 42, 0.1);
-  --success: #166534;
-  --success-bg: #DCFCE7;
-  --radius: 8px;
-  --radius-lg: 16px;
-  --shadow: 0 4px 20px rgba(13,27,42,0.06);
-  --shadow-lg: 0 10px 40px rgba(13,27,42,0.12);
-  --font-main: 'Outfit', sans-serif;
-  --font-heading: 'Playfair Display', serif;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--font-main);
-  background: var(--offwhite);
-  color: var(--text);
-  position: relative;
-  font-size: 16px;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMLT Engineering – Industrial Filtration & Process Equipment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0D1B2A;
+      --navy-mid: #1A2F46;
+      --navy-light: #243d57;
+      --accent: #E8650A;
+      --accent-light: #F97316;
+      --accent-pale: #fff3e8;
+      --steel: #607D8B;
+      --steel-light: #B0BEC5;
+      --offwhite: #F8F6F1;
+      --white: #FFFFFF;
+      --text: #1A2332;
+      --text-mid: #445566;
+      --text-muted: #7A8FA0;
+      --border: rgba(13, 27, 42, 0.1);
+      --success: #166534;
+      --success-bg: #DCFCE7;
+      --radius: 8px;
+      --radius-lg: 16px;
+      --shadow: 0 4px 20px rgba(13, 27, 42, 0.06);
+      --shadow-lg: 0 10px 40px rgba(13, 27, 42, 0.12);
+      --font-main: 'Outfit', sans-serif;
+      --font-heading: 'Playfair Display', serif;
+    }
 
-/* Noise Texture Overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 9999;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-heading);
-}
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
-button { cursor: pointer; font-family: 'DM Sans', sans-serif; border: none; background: none; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* NAV */
-#navbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(13, 27, 42, 0.8);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  padding: 0 5%;
-  height: 72px;
-  display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: box-shadow 0.3s;
-}
-#navbar.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.3); }
-.nav-logo { display: flex; align-items: center; gap: 12px; }
-.nav-logo-mark {
-  width: 38px; height: 38px; background: var(--accent);
-  border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-main); font-weight: 800; font-size: 16px; color: white; letter-spacing: -0.5px;
-}
-.nav-logo-text { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; color: white; letter-spacing: 0.5px; }
-.nav-logo-text span { color: var(--accent); }
-.nav-links { display: flex; align-items: center; gap: 8px; }
-.nav-links a {
-  color: rgba(255,255,255,0.75); font-size: 14px; font-weight: 500;
-  padding: 6px 14px; border-radius: 6px;
-  transition: all 0.2s;
-  font-family: var(--font-main);
-  letter-spacing: 0.5px;
-}
-.nav-links a:hover { color: white; background: rgba(255,255,255,0.08); }
-.nav-cta {
-  background: var(--accent) !important;
-  color: white !important;
-  padding: 8px 20px !important;
-  border-radius: 8px !important;
-  font-weight: 600 !important;
-  box-shadow: 0 4px 15px rgba(232, 101, 10, 0.3);
-}
-.nav-cta:hover { background: var(--accent-light) !important; }
-.nav-mobile-btn { display: none; color: white; font-size: 24px; padding: 4px; }
+    body {
+      font-family: var(--font-main);
+      background: var(--offwhite);
+      color: var(--text);
+      position: relative;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-/* HERO */
-#hero {
-  min-height: 100vh;
-  background: var(--navy);
-  position: relative; overflow: hidden;
-  display: flex; align-items: center;
-  padding: 120px 5% 80px;
-}
-.hero-bg-pattern {
-  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
-  animation: ken-burns 20s infinite alternate;
-}
+    /* Noise Texture Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
 
-@keyframes ken-burns {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
-}
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-heading);
+    }
 
-.hero-bg-pattern::before {
-  content: '';
-  position: absolute;
-  right: -10%; top: -5%;
-  width: 65%; height: 110%;
-  background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
-  clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-.hero-grid-lines {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-.hero-accent-line {
-  position: absolute; left: 5%; top: 0; bottom: 0; width: 2px;
-  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-  opacity: 0.4;
-}
-.hero-content { position: relative; z-index: 2; max-width: 620px; }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(232,101,10,0.15); border: 1px solid rgba(232,101,10,0.3);
-  border-radius: 100px; padding: 6px 16px;
-  font-size: 13px; font-weight: 500; color: #FDA86A;
-  margin-bottom: 28px; letter-spacing: 0.3px;
-}
-.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-.hero-title {
-  font-family: var(--font-heading);
-  font-size: clamp(40px, 5.5vw, 72px); font-weight: 800;
-  color: white; line-height: 1.05; margin-bottom: 24px;
-  letter-spacing: -1px;
-}
-.hero-title .accent-word { color: var(--accent); }
-.hero-subtitle {
-  font-family: var(--font-main);
-  font-size: 18px; color: rgba(255, 255, 255, 0.7); line-height: 1.7;
-  margin-bottom: 40px; max-width: 480px; font-weight: 400;
-}
-.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-.btn-primary {
-  font-family: var(--font-main);
-  background: var(--accent); color: white;
-  padding: 14px 32px; border-radius: var(--radius);
-  font-size: 15px; font-weight: 600;
-  text-transform: none;
-  letter-spacing: 0.3px;
-  transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
-  border: 2px solid var(--accent);
-}
-.btn-primary:hover { background: var(--accent-light); border-color: var(--accent-light); transform: translateY(-1px); }
-.btn-outline {
-  background: transparent; color: white;
-  padding: 14px 32px; border-radius: var(--radius);
-  font-size: 15px; font-weight: 500; font-family: 'Syne', sans-serif;
-  border: 2px solid rgba(255,255,255,0.25);
-  transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
-}
-.btn-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
-.hero-stats {
-  display: flex; gap: 40px; margin-top: 56px; padding-top: 40px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-.hero-stat-num { font-family: var(--font-heading); font-size: 32px; font-weight: 800; color: white; line-height: 1; }
-.hero-stat-num span { color: var(--accent); }
-.hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 4px; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 500; }
-.hero-visual {
-  position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
-  width: 38%; max-width: 480px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-  z-index: 2;
-}
-.hero-card {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-lg); padding: 20px;
-  backdrop-filter: blur(8px);
-}
-.hero-card:first-child { grid-column: 1/-1; }
-.hero-card-icon {
-  width: 40px; height: 40px; border-radius: 10px; background: rgba(232,101,10,0.15);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px; margin-bottom: 12px; color: var(--accent);
-}
-.hero-card h4 { font-size: 14px; color: white; font-weight: 600; margin-bottom: 4px; }
-.hero-card p { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* SECTION STYLES */
-.section { padding: 90px 5%; }
-.section-label {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 16px;
-}
-.section-label::before { content: ''; width: 20px; height: 2px; background: var(--accent); }
-.section-title { font-size: clamp(28px, 3.5vw, 44px); color: var(--navy); margin-bottom: 16px; letter-spacing: -0.5px; }
-.section-subtitle { font-size: 17px; color: var(--text-mid); max-width: 560px; line-height: 1.7; font-weight: 300; }
-.section-header { margin-bottom: 56px; }
-.section-header.centered { text-align: center; }
-.section-header.centered .section-subtitle { margin: 0 auto; }
-.section-header.centered .section-label { justify-content: center; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-/* TRUST BAR */
-#trust-bar {
-  background: var(--navy); padding: 24px 5%;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-.trust-bar-inner {
-  display: flex; align-items: center; gap: 0;
-  overflow: hidden; position: relative;
-}
-.trust-bar-track {
-  display: flex; gap: 48px; align-items: center;
-  animation: scroll-trust 30s linear infinite;
-  white-space: nowrap;
-}
-.trust-bar-track:hover { animation-play-state: paused; }
-.trust-item {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 13px; color: rgba(255,255,255,0.45);
-  font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;
-  flex-shrink: 0;
-}
-.trust-item::before {
-  content: '';
-  width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0;
-}
-@keyframes scroll-trust {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
+    button {
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      border: none;
+      background: none;
+    }
 
-/* ABOUT STRIP */
-#about { background: var(--offwhite); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; }
-.about-feature {
-  background: white; border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 20px;
-}
-.about-feature-icon { font-size: 24px; margin-bottom: 10px; }
-.about-feature h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--navy); }
-.about-feature p { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
-.about-image-block {
-  position: relative;
-}
-.about-img-main {
-  width: 100%; height: 400px; object-fit: cover;
-  border-radius: var(--radius-lg);
-  background: var(--navy-mid);
-}
-.about-img-placeholder {
-  width: 100%; height: 400px; border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 16px;
-}
-.about-img-placeholder span { font-size: 48px; opacity: 0.3; }
-.about-img-placeholder p { font-size: 14px; color: rgba(255,255,255,0.3); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
-.about-badge-float {
-  position: absolute; bottom: -20px; right: -20px;
-  background: var(--accent); color: white;
-  border-radius: var(--radius); padding: 20px 24px;
-  box-shadow: var(--shadow-lg);
-  text-align: center;
-}
-.about-badge-float .num { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; }
-.about-badge-float .lbl { font-size: 12px; opacity: 0.85; margin-top: 4px; font-weight: 500; }
+    /* NAV */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(13, 27, 42, 0.8);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      padding: 0 5%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: box-shadow 0.3s;
+    }
 
-/* SERVICES */
-#services { background: white; }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.service-card {
-  border: 1px solid var(--border); border-radius: var(--radius-lg);
-  overflow: hidden; cursor: pointer; transition: all 0.25s;
-  background: white;
-}
-.service-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.service-card-img {
-  height: 180px; overflow: hidden; background: var(--navy);
-  position: relative;
-}
-.service-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-.service-card:hover .service-card-img img { transform: scale(1.05); }
-.service-card-img-placeholder {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 8px;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-}
-.service-card-body { padding: 20px; }
-.service-card-body h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-.service-card-body p { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
-.service-card-arrow {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 600; color: var(--accent);
-  margin-top: 14px;
-}
+    #navbar.scrolled {
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
+    }
 
-/* SERVICE MODAL */
-.modal-overlay {
-  display: none; position: fixed; inset: 0; z-index: 1000;
-  background: rgba(13,27,42,0.7); backdrop-filter: blur(4px);
-  align-items: center; justify-content: center; padding: 24px;
-}
-.modal-overlay.active { display: flex; }
-.modal-box {
-  background: white; border-radius: var(--radius-lg);
-  max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto;
-  box-shadow: var(--shadow-lg);
-}
-.modal-header {
-  padding: 24px 28px 20px;
-  border-bottom: 1px solid var(--border);
-  display: flex; justify-content: space-between; align-items: flex-start;
-}
-.modal-header h2 { font-size: 22px; color: var(--navy); }
-.modal-close {
-  width: 32px; height: 32px; border-radius: 8px;
-  background: var(--offwhite); display: flex; align-items: center;
-  justify-content: center; font-size: 18px; color: var(--text-mid);
-  flex-shrink: 0; cursor: pointer; transition: all 0.2s;
-}
-.modal-close:hover { background: #ffe4d0; color: var(--accent); }
-.modal-img { width: 100%; height: 240px; object-fit: cover; }
-.modal-img-placeholder {
-  width: 100%; height: 200px;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 48px; opacity: 0.4; color: white;
-}
-.modal-body { padding: 24px 28px; }
-.modal-section { margin-bottom: 20px; }
-.modal-section h4 {
-  font-size: 14px; font-weight: 700; color: var(--accent);
-  text-transform: uppercase; letter-spacing: 1px;
-  margin-bottom: 10px;
-}
-.modal-section ul { list-style: none; padding: 0; }
-.modal-section ul li {
-  font-size: 14px; color: var(--text-mid);
-  padding: 6px 0; border-bottom: 1px solid var(--border);
-  display: flex; gap: 8px; align-items: flex-start;
-}
-.modal-section ul li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
-.modal-specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.modal-spec-item {
-  background: var(--offwhite); border-radius: 8px; padding: 10px 14px;
-}
-.modal-spec-item .key { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-.modal-spec-item .val { font-size: 13px; color: var(--navy); margin-top: 2px; font-weight: 500; }
-.modal-footer {
-  padding: 16px 28px 24px;
-  display: flex; gap: 12px; flex-wrap: wrap;
-}
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-/* PRODUCTS */
-#products { background: var(--offwhite); }
-.product-filter-bar {
-  display: flex; gap: 12px; align-items: center;
-  flex-wrap: wrap; margin-bottom: 36px;
-}
-.product-search-wrap {
-  flex: 1; min-width: 260px; position: relative;
-}
-.product-search-wrap svg {
-  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
-  color: var(--text-muted);
-}
-#product-search {
-  width: 100%; padding: 12px 14px 12px 42px;
-  border: 1.5px solid var(--border); border-radius: var(--radius);
-  font-family: 'DM Sans', sans-serif; font-size: 15px;
-  background: white; color: var(--text);
-  transition: border-color 0.2s;
-  outline: none;
-}
-#product-search:focus { border-color: var(--accent); }
-.filter-select {
-  padding: 12px 16px; border: 1.5px solid var(--border); border-radius: var(--radius);
-  font-family: 'DM Sans', sans-serif; font-size: 14px;
-  background: white; color: var(--text); cursor: pointer;
-  outline: none; transition: border-color 0.2s;
-}
-.filter-select:focus { border-color: var(--accent); }
-.product-count {
-  font-size: 13px; color: var(--text-muted); font-weight: 500;
-  white-space: nowrap;
-}
-.products-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px; margin-bottom: 36px;
-}
-.product-card {
-  background: white; border: 1px solid var(--border); border-radius: var(--radius-lg);
-  overflow: hidden; cursor: pointer; transition: all 0.25s;
-}
-.product-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-.product-card-img {
-  height: 160px; overflow: hidden; background: var(--navy);
-  position: relative;
-}
-.product-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-.product-card:hover .product-card-img img { transform: scale(1.06); }
-.product-card-img-placeholder {
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, #1A2F46 0%, #243d57 100%);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 40px;
-}
-.product-card-body { padding: 16px; }
-.product-card-body h3 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 6px; line-height: 1.35; }
-.product-card-category {
-  font-size: 11px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;
-  color: var(--accent); background: var(--accent-pale); padding: 3px 8px;
-  border-radius: 4px; display: inline-block; margin-bottom: 8px;
-}
-.product-card-specs-preview { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-.product-load-btn-wrap { text-align: center; }
-.load-more-btn {
-  background: var(--navy); color: white;
-  padding: 14px 40px; border-radius: var(--radius);
-  font-size: 15px; font-weight: 600; font-family: 'Syne', sans-serif;
-  transition: all 0.2s; display: inline-flex; align-items: center; gap: 10px;
-  border: 2px solid var(--navy);
-}
-.load-more-btn:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
-.load-more-btn.hidden { display: none; }
-.no-products-msg {
-  text-align: center; padding: 60px 0; color: var(--text-muted);
-  font-size: 16px;
-}
+    .nav-logo-mark {
+      width: 38px;
+      height: 38px;
+      background: var(--accent);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-main);
+      font-weight: 800;
+      font-size: 16px;
+      color: white;
+      letter-spacing: -0.5px;
+    }
 
-/* PRODUCT MODAL */
-.pmodal-header-img { width: 100%; height: 260px; object-fit: cover; }
-.pmodal-header-img-placeholder {
-  width: 100%; height: 220px;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 64px;
-}
-.spec-table { width: 100%; border-collapse: collapse; }
-.spec-table tr:nth-child(even) { background: var(--offwhite); }
-.spec-table td {
-  padding: 10px 14px; font-size: 13px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
-}
-.spec-table td:first-child {
-  font-weight: 600; color: var(--navy); width: 42%;
-  font-size: 12px; letter-spacing: 0.3px;
-}
-.spec-table td:last-child { color: var(--text-mid); }
+    .nav-logo-text {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: white;
+      letter-spacing: 0.5px;
+    }
 
-/* REVIEWS */
-#reviews { background: var(--navy); overflow: hidden; padding: 90px 0; }
-#reviews .section-title { color: white; }
-#reviews .section-subtitle { color: rgba(255,255,255,0.5); }
-.reviews-header { text-align: center; margin-bottom: 56px; padding: 0 5%; }
-.reviews-track-wrap { overflow: hidden; position: relative; }
-.reviews-track-wrap::before,
-.reviews-track-wrap::after {
-  content: ''; position: absolute; top: 0; bottom: 0; z-index: 2; pointer-events: none; width: 80px;
-}
-.reviews-track-wrap::before { left: 0; background: linear-gradient(to right, var(--navy), transparent); }
-.reviews-track-wrap::after { right: 0; background: linear-gradient(to left, var(--navy), transparent); }
-.reviews-track {
-  display: flex; gap: 20px;
-  animation: scroll-reviews 35s linear infinite;
-  width: max-content; padding: 0 20px;
-}
-.reviews-track:hover { animation-play-state: paused; }
-@keyframes scroll-reviews {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.review-card {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-lg); padding: 24px; width: 300px; flex-shrink: 0;
-}
-.review-stars { color: #FBBF24; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
-.review-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; font-weight: 300; font-style: italic; margin-bottom: 16px; }
-.review-author { display: flex; align-items: center; gap: 12px; }
-.review-avatar {
-  width: 38px; height: 38px; border-radius: 50%;
-  background: var(--accent); display: flex; align-items: center;
-  justify-content: center; font-weight: 700; font-size: 13px; color: white;
-  font-family: 'Syne', sans-serif; flex-shrink: 0;
-}
-.review-name { font-size: 14px; font-weight: 600; color: white; font-family: 'Syne', sans-serif; }
-.review-company { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .nav-logo-text span {
+      color: var(--accent);
+    }
 
-/* WHY US */
-#why-us { background: white; }
-.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.why-card {
-  padding: 32px; border: 1px solid var(--border); border-radius: var(--radius-lg);
-  position: relative; overflow: hidden; transition: all 0.25s;
-}
-.why-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--accent); transform: scaleX(0); transition: transform 0.3s;
-  transform-origin: left;
-}
-.why-card:hover::before { transform: scaleX(1); }
-.why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.why-icon {
-  width: 52px; height: 52px; border-radius: 12px;
-  background: var(--accent-pale); display: flex; align-items: center;
-  justify-content: center; font-size: 26px; margin-bottom: 20px;
-}
-.why-card h3 { font-size: 18px; color: var(--navy); margin-bottom: 10px; }
-.why-card p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-/* ENQUIRY */
-#enquiry { background: var(--offwhite); }
-.enquiry-wrap {
-  display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start;
-}
-.enquiry-info { }
-.enquiry-info-item {
-  display: flex; gap: 16px; align-items: flex-start;
-  padding: 20px 0; border-bottom: 1px solid var(--border);
-}
-.enquiry-info-item:last-child { border-bottom: none; }
-.enquiry-icon {
-  width: 42px; height: 42px; border-radius: 10px;
-  background: var(--accent-pale); display: flex; align-items: center;
-  justify-content: center; font-size: 20px; flex-shrink: 0;
-}
-.enquiry-info-item h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-.enquiry-info-item a, .enquiry-info-item p { font-size: 14px; color: var(--text-mid); display: block; transition: color 0.2s; }
-.enquiry-info-item a:hover { color: var(--accent); }
-.enquiry-form-box {
-  background: white; border: 1px solid var(--border); border-radius: var(--radius-lg);
-  padding: 36px;
-}
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form-group { margin-bottom: 20px; }
-.form-group label {
-  display: block; font-size: 13px; font-weight: 600; color: var(--navy);
-  margin-bottom: 6px; letter-spacing: 0.3px;
-}
-.form-group label span { color: var(--accent); }
-.form-control {
-  width: 100%; padding: 11px 14px;
-  border: 1.5px solid var(--border); border-radius: var(--radius);
-  font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text);
-  background: var(--white); outline: none; transition: border-color 0.2s;
-  resize: vertical;
-}
-.form-control:focus { border-color: var(--accent); }
-.form-control.error { border-color: #dc2626; }
-.form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23607D8B' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
-.form-error { font-size: 12px; color: #dc2626; margin-top: 4px; display: none; }
-.form-group.has-error .form-error { display: block; }
-.form-group.has-error .form-control { border-color: #dc2626; }
-.form-submit {
-  width: 100%; background: var(--accent); color: white;
-  padding: 14px; border-radius: var(--radius); border: none;
-  font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700;
-  cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px;
-}
-.form-submit:hover { background: var(--accent-light); transform: translateY(-1px); }
-.form-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
-.form-success {
-  display: none; text-align: center; padding: 36px 24px;
-}
-.form-success.visible { display: block; }
-.form-success-icon {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: var(--success-bg); display: flex; align-items: center;
-  justify-content: center; margin: 0 auto 16px;
-  font-size: 28px;
-}
-.form-success h3 { font-size: 22px; color: var(--navy); margin-bottom: 8px; }
-.form-success p { font-size: 15px; color: var(--text-mid); }
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: all 0.2s;
+      font-family: var(--font-main);
+      letter-spacing: 0.5px;
+    }
 
-/* FOOTER */
-#footer {
-  background: var(--navy); color: rgba(255,255,255,0.65);
-  padding: 60px 5% 0;
-}
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
-.footer-brand p { font-size: 14px; line-height: 1.7; margin-top: 16px; max-width: 280px; }
-.footer-col h4 { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: white; margin-bottom: 16px; letter-spacing: 0.5px; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 10px; }
-.footer-col ul li a { font-size: 14px; color: rgba(255,255,255,0.5); transition: color 0.2s; }
-.footer-col ul li a:hover { color: var(--accent); }
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.07);
-  padding: 24px 0; display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 12px;
-}
-.footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.3); }
-.footer-cert {
-  display: flex; gap: 16px; align-items: center;
-}
-.footer-cert span {
-  font-size: 11px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-  padding: 4px 12px; border-radius: 100px; color: rgba(255,255,255,0.5);
-  letter-spacing: 0.5px; font-weight: 500;
-}
+    .nav-links a:hover {
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+    }
 
-/* BACK TO TOP */
-#back-top {
-  position: fixed; bottom: 28px; right: 28px; z-index: 90;
-  width: 44px; height: 44px; border-radius: 50%;
-  background: var(--accent); color: white; border: none;
-  display: none; align-items: center; justify-content: center;
-  font-size: 20px; cursor: pointer; box-shadow: var(--shadow-lg);
-  transition: all 0.2s;
-}
-#back-top.visible { display: flex; }
-#back-top:hover { background: var(--accent-light); transform: translateY(-2px); }
+    .nav-cta {
+      background: var(--accent) !important;
+      color: white !important;
+      padding: 8px 20px !important;
+      border-radius: 8px !important;
+      font-weight: 600 !important;
+      box-shadow: 0 4px 15px rgba(232, 101, 10, 0.3);
+    }
 
-/* WHATSAPP BUTTON */
-.wa-float {
-  position: fixed; bottom: 80px; right: 28px; z-index: 90;
-  background: #25D366; color: white;
-  width: 48px; height: 48px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 16px rgba(37,211,102,0.4);
-  font-size: 24px; transition: all 0.2s;
-}
-.wa-float:hover { transform: scale(1.1); }
+    .nav-cta:hover {
+      background: var(--accent-light) !important;
+    }
 
-/* MOBILE MENU */
-.mobile-nav {
-  display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
-  background: var(--navy); border-top: 1px solid rgba(255,255,255,0.07);
-  padding: 16px 5%;
-  flex-direction: column; gap: 4px;
-}
-.mobile-nav.open { display: flex; }
-.mobile-nav a {
-  color: rgba(255,255,255,0.75); padding: 12px 16px;
-  border-radius: 8px; font-size: 15px; font-weight: 500; transition: all 0.2s;
-  display: block;
-}
-.mobile-nav a:hover { background: rgba(255,255,255,0.06); color: white; }
+    .nav-mobile-btn {
+      display: none;
+      color: white;
+      font-size: 24px;
+      padding: 4px;
+    }
 
-/* ANIMATIONS */
-.fade-in { opacity: 0; transform: translateY(24px); transition: all 0.6s ease; }
-.fade-in.visible { opacity: 1; transform: none; }
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+    }
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-  .hero-visual { display: none; }
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .why-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .nav-mobile-btn { display: flex; align-items: center; }
-  .hero-stats { gap: 24px; }
-  .services-grid { grid-template-columns: 1fr; }
-  .why-grid { grid-template-columns: 1fr; }
-  .enquiry-wrap { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-  .modal-specs-grid { grid-template-columns: 1fr; }
-  .about-badge-float { display: none; }
-}
-</style>
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      animation: ken-burns 20s infinite alternate;
+    }
+
+    @keyframes ken-burns {
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .hero-bg-pattern::before {
+      content: '';
+      position: absolute;
+      right: -10%;
+      top: -5%;
+      width: 65%;
+      height: 110%;
+      background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
+      clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-accent-line {
+      position: absolute;
+      left: 5%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+      opacity: 0.4;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232, 101, 10, 0.15);
+      border: 1px solid rgba(232, 101, 10, 0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #FDA86A;
+      margin-bottom: 28px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 800;
+      color: white;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+
+    .hero-title .accent-word {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-main);
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 480px;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--font-main);
+      background: var(--accent);
+      color: white;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0.3px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 500;
+      font-family: 'Syne', sans-serif;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 800;
+      color: white;
+      line-height: 1;
+    }
+
+    .hero-stat-num span {
+      color: var(--accent);
+    }
+
+    .hero-stat-label {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .hero-visual {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38%;
+      max-width: 480px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-card:first-child {
+      grid-column: 1/-1;
+    }
+
+    .hero-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(232, 101, 10, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .hero-card h4 {
+      font-size: 14px;
+      color: white;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .hero-card p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.5;
+    }
+
+    /* SECTION STYLES */
+    .section {
+      padding: 90px 5%;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      color: var(--navy);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .section-header {
+      margin-bottom: 56px;
+    }
+
+    .section-header.centered {
+      text-align: center;
+    }
+
+    .section-header.centered .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .section-header.centered .section-label {
+      justify-content: center;
+    }
+
+    /* TRUST BAR */
+    #trust-bar {
+      background: var(--navy);
+      padding: 24px 5%;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .trust-bar-inner {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .trust-bar-track {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      animation: scroll-trust 30s linear infinite;
+      white-space: nowrap;
+    }
+
+    .trust-bar-track:hover {
+      animation-play-state: paused;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .trust-item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    @keyframes scroll-trust {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ABOUT STRIP */
+    #about {
+      background: var(--offwhite);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .about-feature {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .about-feature-icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .about-feature h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--navy);
+    }
+
+    .about-feature p {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    .about-image-block {
+      position: relative;
+    }
+
+    .about-img-main {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      background: var(--navy-mid);
+    }
+
+    .about-img-placeholder {
+      width: 100%;
+      height: 400px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .about-img-placeholder span {
+      font-size: 48px;
+      opacity: 0.3;
+    }
+
+    .about-img-placeholder p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.3);
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .about-badge-float {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--accent);
+      color: white;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+
+    .about-badge-float .num {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .about-badge-float .lbl {
+      font-size: 12px;
+      opacity: 0.85;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* SERVICES */
+    #services {
+      background: white;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s;
+      background: white;
+    }
+
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card-img {
+      height: 180px;
+      overflow: hidden;
+      background: var(--navy);
+      position: relative;
+    }
+
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .service-card:hover .service-card-img img {
+      transform: scale(1.05);
+    }
+
+    .service-card-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    }
+
+    .service-card-body {
+      padding: 20px;
+    }
+
+    .service-card-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .service-card-body p {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .service-card-arrow {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 14px;
+    }
+
+    /* SERVICE MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(13, 27, 42, 0.7);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: white;
+      border-radius: var(--radius-lg);
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-header {
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .modal-header h2 {
+      font-size: 22px;
+      color: var(--navy);
+    }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--offwhite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--text-mid);
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      background: #ffe4d0;
+      color: var(--accent);
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .modal-img-placeholder {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      opacity: 0.4;
+      color: white;
+    }
+
+    .modal-body {
+      padding: 24px 28px;
+    }
+
+    .modal-section {
+      margin-bottom: 20px;
+    }
+
+    .modal-section h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .modal-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .modal-section ul li {
+      font-size: 14px;
+      color: var(--text-mid);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .modal-section ul li::before {
+      content: '→';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .modal-specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .modal-spec-item {
+      background: var(--offwhite);
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+
+    .modal-spec-item .key {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-spec-item .val {
+      font-size: 13px;
+      color: var(--navy);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    .modal-footer {
+      padding: 16px 28px 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* PRODUCTS */
+    #products {
+      background: var(--offwhite);
+    }
+
+    .product-filter-bar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .product-search-wrap {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .product-search-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    #product-search {
+      width: 100%;
+      padding: 12px 14px 12px 42px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      background: white;
+      color: var(--text);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    #product-search:focus {
+      border-color: var(--accent);
+    }
+
+    .filter-select {
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      background: white;
+      color: var(--text);
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .filter-select:focus {
+      border-color: var(--accent);
+    }
+
+    .product-count {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .product-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .product-card-img {
+      height: 160px;
+      overflow: hidden;
+      background: var(--navy);
+      position: relative;
+    }
+
+    .product-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .product-card:hover .product-card-img img {
+      transform: scale(1.06);
+    }
+
+    .product-card-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1A2F46 0%, #243d57 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+
+    .product-card-body {
+      padding: 16px;
+    }
+
+    .product-card-body h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .product-card-category {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-pale);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .product-card-specs-preview {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .product-load-btn-wrap {
+      text-align: center;
+    }
+
+    .load-more-btn {
+      background: var(--navy);
+      color: white;
+      padding: 14px 40px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Syne', sans-serif;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid var(--navy);
+    }
+
+    .load-more-btn:hover {
+      background: var(--navy-mid);
+      border-color: var(--navy-mid);
+    }
+
+    .load-more-btn.hidden {
+      display: none;
+    }
+
+    .no-products-msg {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    /* PRODUCT MODAL */
+    .pmodal-header-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .pmodal-header-img-placeholder {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .spec-table tr:nth-child(even) {
+      background: var(--offwhite);
+    }
+
+    .spec-table td {
+      padding: 10px 14px;
+      font-size: 13px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .spec-table td:first-child {
+      font-weight: 600;
+      color: var(--navy);
+      width: 42%;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .spec-table td:last-child {
+      color: var(--text-mid);
+    }
+
+    /* REVIEWS */
+    #reviews {
+      background: var(--navy);
+      overflow: hidden;
+      padding: 90px 0;
+    }
+
+    #reviews .section-title {
+      color: white;
+    }
+
+    #reviews .section-subtitle {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 56px;
+      padding: 0 5%;
+    }
+
+    .reviews-track-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .reviews-track-wrap::before,
+    .reviews-track-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      pointer-events: none;
+      width: 80px;
+    }
+
+    .reviews-track-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, var(--navy), transparent);
+    }
+
+    .reviews-track-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, var(--navy), transparent);
+    }
+
+    .reviews-track {
+      display: flex;
+      gap: 20px;
+      animation: scroll-reviews 35s linear infinite;
+      width: max-content;
+      padding: 0 20px;
+    }
+
+    .reviews-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll-reviews {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .review-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      width: 300px;
+      flex-shrink: 0;
+    }
+
+    .review-stars {
+      color: #FBBF24;
+      font-size: 14px;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .review-text {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .review-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      color: white;
+      font-family: 'Syne', sans-serif;
+      flex-shrink: 0;
+    }
+
+    .review-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .review-company {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* WHY US */
+    #why-us {
+      background: white;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .why-card {
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s;
+    }
+
+    .why-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .why-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .why-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--accent-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .why-card h3 {
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ENQUIRY */
+    #enquiry {
+      background: var(--offwhite);
+    }
+
+    .enquiry-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .enquiry-info {}
+
+    .enquiry-info-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .enquiry-info-item:last-child {
+      border-bottom: none;
+    }
+
+    .enquiry-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--accent-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .enquiry-info-item h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .enquiry-info-item a,
+    .enquiry-info-item p {
+      font-size: 14px;
+      color: var(--text-mid);
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .enquiry-info-item a:hover {
+      color: var(--accent);
+    }
+
+    .enquiry-form-box {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .form-group label span {
+      color: var(--accent);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent);
+    }
+
+    .form-control.error {
+      border-color: #dc2626;
+    }
+
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23607D8B' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .form-error {
+      font-size: 12px;
+      color: #dc2626;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .form-group.has-error .form-error {
+      display: block;
+    }
+
+    .form-group.has-error .form-control {
+      border-color: #dc2626;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      color: white;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: none;
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .form-submit:hover {
+      background: var(--accent-light);
+      transform: translateY(-1px);
+    }
+
+    .form-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 36px 24px;
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
+    .form-success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--success-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 28px;
+    }
+
+    .form-success h3 {
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .form-success p {
+      font-size: 15px;
+      color: var(--text-mid);
+    }
+
+    /* FOOTER */
+    #footer {
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.65);
+      padding: 60px 5% 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-top: 16px;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .footer-cert {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .footer-cert span {
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 12px;
+      border-radius: 100px;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    /* BACK TO TOP */
+    #back-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 90;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      border: none;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.2s;
+    }
+
+    #back-top.visible {
+      display: flex;
+    }
+
+    #back-top:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    /* WHATSAPP BUTTON */
+    .wa-float {
+      position: fixed;
+      bottom: 80px;
+      right: 28px;
+      z-index: 90;
+      background: #25D366;
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+      font-size: 24px;
+      transition: all 0.2s;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* MOBILE MENU */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      background: var(--navy);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 16px 5%;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      color: rgba(255, 255, 255, 0.75);
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.2s;
+      display: block;
+    }
+
+    .mobile-nav a:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: white;
+    }
+
+    /* ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-visual {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-mobile-btn {
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-stats {
+        gap: 24px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .enquiry-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .modal-specs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-badge-float {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav id="navbar">
-  <a href="#hero" class="nav-logo">
-    <div class="nav-logo-mark">SE</div>
-    <div class="nav-logo-text">SMLT <span>Engineering</span></div>
-  </a>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#products">Products</a>
-    <a href="#reviews">Clients</a>
-    <a href="#enquiry" class="nav-cta">Get Quote</a>
-  </div>
-  <button class="nav-mobile-btn" id="menu-btn" aria-label="Menu">☰</button>
-</nav>
-<div class="mobile-nav" id="mobile-nav">
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#services" onclick="closeMobile()">Services</a>
-  <a href="#products" onclick="closeMobile()">Products</a>
-  <a href="#reviews" onclick="closeMobile()">Clients</a>
-  <a href="#enquiry" onclick="closeMobile()">Get Quote</a>
-</div>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg-pattern">
-    <div class="hero-grid-lines"></div>
-    <div class="hero-accent-line"></div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-badge">ISO Certified Industrial Solutions — Pan India</div>
-    <h1 class="hero-title">
-      Industrial<br/>
-      <span class="accent-word">Filtration</span> &<br/>
-      Process Equipment
-    </h1>
-    <p class="hero-subtitle">
-      Trusted by pharmaceutical, chemical, and food processing industries across India for precision-engineered filtration systems, process equipment, and HVAC solutions.
-    </p>
-    <div class="hero-actions">
-      <a href="#products" class="btn-primary">Browse Products →</a>
-      <a href="#enquiry" class="btn-outline">Request a Quote</a>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-mark">SE</div>
+      <div class="nav-logo-text">SMLT <span>Engineering</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#products">Products</a>
+      <a href="#reviews">Clients</a>
+      <a href="#enquiry" class="nav-cta">Get Quote</a>
     </div>
-    <div class="hero-stats">
+    <button class="nav-mobile-btn" id="menu-btn" aria-label="Menu">☰</button>
+  </nav>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#products" onclick="closeMobile()">Products</a>
+    <a href="#reviews" onclick="closeMobile()">Clients</a>
+    <a href="#enquiry" onclick="closeMobile()">Get Quote</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-pattern">
+      <div class="hero-grid-lines"></div>
+      <div class="hero-accent-line"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">ISO Certified Industrial Solutions — Pan India</div>
+      <h1 class="hero-title">
+        Industrial<br />
+        <span class="accent-word">Filtration</span> &<br />
+        Process Equipment
+      </h1>
+      <p class="hero-subtitle">
+        Trusted by pharmaceutical, chemical, and food processing industries across India for precision-engineered
+        filtration systems, process equipment, and HVAC solutions.
+      </p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-primary">Browse Products →</a>
+        <a href="#enquiry" class="btn-outline">Request a Quote</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">43<span>+</span></div>
+          <div class="hero-stat-label">Product Lines</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">6<span>+</span></div>
+          <div class="hero-stat-label">Service Types</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">GMP</div>
+          <div class="hero-stat-label">Compliant Design</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-icon">⚙</div>
+        <h4>Precision Manufacturing</h4>
+        <p>GMP/FDA compliant SS304 & SS316 fabrication for pharma and chemical industries</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🌬</div>
+        <h4>HVAC & Cleanroom</h4>
+        <p>Certified HEPA filter systems and cleanroom installations</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🔩</div>
+        <h4>Pipeline Services</h4>
+        <p>SS / MS pipeline fabrication, erection, and maintenance</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div id="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-bar-track" id="trust-track">
+        <div class="trust-item">Pharmaceuticals</div>
+        <div class="trust-item">Chemical Processing</div>
+        <div class="trust-item">Food &amp; Beverage</div>
+        <div class="trust-item">Water Treatment</div>
+        <div class="trust-item">Oil &amp; Gas</div>
+        <div class="trust-item">Power Plants</div>
+        <div class="trust-item">Cleanroom Design</div>
+        <div class="trust-item">GMP Certified</div>
+        <div class="trust-item">ASME Standards</div>
+        <div class="trust-item">Pan India Delivery</div>
+        <!-- duplicate for seamless loop -->
+        <div class="trust-item">Pharmaceuticals</div>
+        <div class="trust-item">Chemical Processing</div>
+        <div class="trust-item">Food &amp; Beverage</div>
+        <div class="trust-item">Water Treatment</div>
+        <div class="trust-item">Oil &amp; Gas</div>
+        <div class="trust-item">Power Plants</div>
+        <div class="trust-item">Cleanroom Design</div>
+        <div class="trust-item">GMP Certified</div>
+        <div class="trust-item">ASME Standards</div>
+        <div class="trust-item">Pan India Delivery</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="about-grid">
       <div>
-        <div class="hero-stat-num">43<span>+</span></div>
-        <div class="hero-stat-label">Product Lines</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">6<span>+</span></div>
-        <div class="hero-stat-label">Service Types</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">GMP</div>
-        <div class="hero-stat-label">Compliant Design</div>
-      </div>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="hero-card">
-      <div class="hero-card-icon">⚙</div>
-      <h4>Precision Manufacturing</h4>
-      <p>GMP/FDA compliant SS304 & SS316 fabrication for pharma and chemical industries</p>
-    </div>
-    <div class="hero-card">
-      <div class="hero-card-icon">🌬</div>
-      <h4>HVAC & Cleanroom</h4>
-      <p>Certified HEPA filter systems and cleanroom installations</p>
-    </div>
-    <div class="hero-card">
-      <div class="hero-card-icon">🔩</div>
-      <h4>Pipeline Services</h4>
-      <p>SS / MS pipeline fabrication, erection, and maintenance</p>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST BAR -->
-<div id="trust-bar">
-  <div class="trust-bar-inner">
-    <div class="trust-bar-track" id="trust-track">
-      <div class="trust-item">Pharmaceuticals</div>
-      <div class="trust-item">Chemical Processing</div>
-      <div class="trust-item">Food &amp; Beverage</div>
-      <div class="trust-item">Water Treatment</div>
-      <div class="trust-item">Oil &amp; Gas</div>
-      <div class="trust-item">Power Plants</div>
-      <div class="trust-item">Cleanroom Design</div>
-      <div class="trust-item">GMP Certified</div>
-      <div class="trust-item">ASME Standards</div>
-      <div class="trust-item">Pan India Delivery</div>
-      <!-- duplicate for seamless loop -->
-      <div class="trust-item">Pharmaceuticals</div>
-      <div class="trust-item">Chemical Processing</div>
-      <div class="trust-item">Food &amp; Beverage</div>
-      <div class="trust-item">Water Treatment</div>
-      <div class="trust-item">Oil &amp; Gas</div>
-      <div class="trust-item">Power Plants</div>
-      <div class="trust-item">Cleanroom Design</div>
-      <div class="trust-item">GMP Certified</div>
-      <div class="trust-item">ASME Standards</div>
-      <div class="trust-item">Pan India Delivery</div>
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-  <div class="about-grid">
-    <div>
-      <div class="fade-in">
-        <p class="section-label">About Us</p>
-        <h2 class="section-title">Your Trusted Partner in Industrial Engineering</h2>
-        <p style="color:var(--text-mid);line-height:1.8;margin-bottom:16px;font-size:15px;font-weight:300;">
-          SMLT Engineering is a Hyderabad-based industrial engineering company specialising in filtration systems, process equipment, and HVAC services for pharmaceutical, chemical, and manufacturing industries across India.
-        </p>
-        <p style="color:var(--text-mid);line-height:1.8;font-size:15px;font-weight:300;">
-          We supply GMP-grade stainless steel equipment, precision filtration cartridges, HEPA filter systems, and provide on-site services including cleanroom HVAC, ducting, insulation, pipeline fabrication, and fabrication works.
-        </p>
-      </div>
-      <div class="about-features fade-in">
-        <div class="about-feature">
-          <div class="about-feature-icon">🏭</div>
-          <h4>GMP Compliant</h4>
-          <p>FDA/GMP standard manufacturing for pharma-grade equipment</p>
+        <div class="fade-in">
+          <p class="section-label">About Us</p>
+          <h2 class="section-title">Your Trusted Partner in Industrial Engineering</h2>
+          <p style="color:var(--text-mid);line-height:1.8;margin-bottom:16px;font-size:15px;font-weight:300;">
+            SMLT Engineering is a Hyderabad-based industrial engineering company specialising in filtration systems,
+            process equipment, and HVAC services for pharmaceutical, chemical, and manufacturing industries across
+            India.
+          </p>
+          <p style="color:var(--text-mid);line-height:1.8;font-size:15px;font-weight:300;">
+            We supply GMP-grade stainless steel equipment, precision filtration cartridges, HEPA filter systems, and
+            provide on-site services including cleanroom HVAC, ducting, insulation, pipeline fabrication, and
+            fabrication works.
+          </p>
         </div>
-        <div class="about-feature">
-          <div class="about-feature-icon">🚀</div>
-          <h4>Pan India Supply</h4>
-          <p>Prompt delivery and service support across all major cities</p>
+        <div class="about-features fade-in">
+          <div class="about-feature">
+            <div class="about-feature-icon">🏭</div>
+            <h4>GMP Compliant</h4>
+            <p>FDA/GMP standard manufacturing for pharma-grade equipment</p>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">🚀</div>
+            <h4>Pan India Supply</h4>
+            <p>Prompt delivery and service support across all major cities</p>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">🔬</div>
+            <h4>Custom Solutions</h4>
+            <p>Tailored specifications as per your process requirements</p>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">🛡</div>
+            <h4>Quality Assured</h4>
+            <p>Rigorous inspection, pressure testing, and NDT standards</p>
+          </div>
         </div>
-        <div class="about-feature">
-          <div class="about-feature-icon">🔬</div>
-          <h4>Custom Solutions</h4>
-          <p>Tailored specifications as per your process requirements</p>
+      </div>
+      <div class="about-image-block fade-in">
+        <div class="about-img-placeholder">
+          <span>⚙</span>
+          <p>SMLT Engineering</p>
         </div>
-        <div class="about-feature">
-          <div class="about-feature-icon">🛡</div>
-          <h4>Quality Assured</h4>
-          <p>Rigorous inspection, pressure testing, and NDT standards</p>
+        <div class="about-badge-float">
+          <div class="num">15+</div>
+          <div class="lbl">Years of Excellence</div>
         </div>
       </div>
     </div>
-    <div class="about-image-block fade-in">
-      <div class="about-img-placeholder">
-        <span>⚙</span>
-        <p>SMLT Engineering</p>
-      </div>
-      <div class="about-badge-float">
-        <div class="num">15+</div>
-        <div class="lbl">Years of Excellence</div>
-      </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="section-header fade-in">
+      <p class="section-label">Our Services</p>
+      <h2 class="section-title">On-Site Engineering Services</h2>
+      <p class="section-subtitle">Expert installation, maintenance, and fabrication services for industrial facilities
+        across India.</p>
     </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="section">
-  <div class="section-header fade-in">
-    <p class="section-label">Our Services</p>
-    <h2 class="section-title">On-Site Engineering Services</h2>
-    <p class="section-subtitle">Expert installation, maintenance, and fabrication services for industrial facilities across India.</p>
-  </div>
-  <div class="services-grid fade-in" id="services-grid">
-    <!-- rendered by JS -->
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section id="products" class="section">
-  <div class="section-header fade-in">
-    <p class="section-label">Product Catalogue</p>
-    <h2 class="section-title">Industrial Filtration & Process Equipment</h2>
-    <p class="section-subtitle">Browse our full range of 43+ products across filtration, pharma equipment, tanks, and process systems.</p>
-  </div>
-  <div class="product-filter-bar fade-in">
-    <div class="product-search-wrap">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" id="product-search" placeholder="Search products, specifications, applications…"/>
-    </div>
-    <select class="filter-select" id="category-filter">
-      <option value="all">All Categories</option>
-      <option value="filter">Filter Cartridges</option>
-      <option value="housing">Filter Housings</option>
-      <option value="pharma">Pharma Equipment</option>
-      <option value="tank">Tanks & Vessels</option>
-      <option value="strainer">Strainers</option>
-      <option value="dryer">Dryers</option>
-      <option value="water">Water Treatment</option>
-      <option value="air">Air Filters</option>
-    </select>
-    <span class="product-count" id="product-count"></span>
-  </div>
-  <div class="products-grid" id="products-grid"></div>
-  <div class="product-load-btn-wrap">
-    <button class="load-more-btn" id="load-more-btn" onclick="loadMore()">
-      <span id="load-more-text">Show All Products</span>
-      <span id="load-more-count"></span>
-    </button>
-  </div>
-  <div class="no-products-msg" id="no-products" style="display:none">
-    No products match your search. Try different keywords.
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews">
-  <div class="reviews-header fade-in">
-    <p class="section-label" style="color:#FDA86A;justify-content:center">Client Reviews</p>
-    <h2 class="section-title" style="color:white">Trusted by Leading Industries</h2>
-    <p class="section-subtitle" style="color:rgba(255,255,255,0.5);margin:0 auto">What procurement managers and plant engineers say about SMLT Engineering</p>
-  </div>
-  <div class="reviews-track-wrap">
-    <div class="reviews-track" id="reviews-track">
+    <div class="services-grid fade-in" id="services-grid">
       <!-- rendered by JS -->
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- WHY US -->
-<section id="why-us" class="section">
-  <div class="section-header centered fade-in">
-    <p class="section-label">Why SMLT Engineering</p>
-    <h2 class="section-title">The Procurement Advantage</h2>
-    <p class="section-subtitle">Why industrial procurement teams across India choose us as their filtration and equipment partner.</p>
-  </div>
-  <div class="why-grid fade-in">
-    <div class="why-card">
-      <div class="why-icon">📦</div>
-      <h3>Single Source Supply</h3>
-      <p>One vendor for filtration cartridges, housings, process tanks, pharma equipment, and on-site services. Simplify your procurement chain.</p>
+  <!-- PRODUCTS -->
+  <section id="products" class="section">
+    <div class="section-header fade-in">
+      <p class="section-label">Product Catalogue</p>
+      <h2 class="section-title">Industrial Filtration & Process Equipment</h2>
+      <p class="section-subtitle">Browse our full range of 43+ products across filtration, pharma equipment, tanks, and
+        process systems.</p>
     </div>
-    <div class="why-card">
-      <div class="why-icon">⚡</div>
-      <h3>Fast Turnaround</h3>
-      <p>Ready stock of standard products with rapid custom fabrication. Minimise plant downtime with our responsive supply chain.</p>
+    <div class="product-filter-bar fade-in">
+      <div class="product-search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+        <input type="text" id="product-search" placeholder="Search products, specifications, applications…" />
+      </div>
+      <select class="filter-select" id="category-filter">
+        <option value="all">All Categories</option>
+        <option value="filter">Filter Cartridges</option>
+        <option value="housing">Filter Housings</option>
+        <option value="pharma">Pharma Equipment</option>
+        <option value="tank">Tanks & Vessels</option>
+        <option value="strainer">Strainers</option>
+        <option value="dryer">Dryers</option>
+        <option value="water">Water Treatment</option>
+        <option value="air">Air Filters</option>
+      </select>
+      <span class="product-count" id="product-count"></span>
     </div>
-    <div class="why-card">
-      <div class="why-icon">📋</div>
-      <h3>Compliance Documentation</h3>
-      <p>GMP, FDA, ASME, and IS compliant equipment with full material test certificates, inspection reports, and calibration documents.</p>
+    <div class="products-grid" id="products-grid"></div>
+    <div class="product-load-btn-wrap">
+      <button class="load-more-btn" id="load-more-btn" onclick="loadMore()">
+        <span id="load-more-text">Show All Products</span>
+        <span id="load-more-count"></span>
+      </button>
     </div>
-    <div class="why-card">
-      <div class="why-icon">🔧</div>
-      <h3>After-Sales Support</h3>
-      <p>Dedicated service team for installation, commissioning, preventive maintenance, and emergency breakdown support.</p>
+    <div class="no-products-msg" id="no-products" style="display:none">
+      No products match your search. Try different keywords.
     </div>
-    <div class="why-card">
-      <div class="why-icon">💰</div>
-      <h3>Competitive Pricing</h3>
-      <p>Direct manufacturer pricing with volume discounts for long-term procurement partners. Transparent quotes with no hidden costs.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🗺</div>
-      <h3>Pan India Reach</h3>
-      <p>Serving clients across Hyderabad, Mumbai, Pune, Chennai, Bangalore, Delhi, and all major industrial belts in India.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ENQUIRY -->
-<section id="enquiry" class="section">
-  <div class="section-header fade-in">
-    <p class="section-label">Contact Us</p>
-    <h2 class="section-title">Request a Quote or Enquiry</h2>
-    <p class="section-subtitle">Our team responds within 24 hours. For urgent requirements, call us directly.</p>
-  </div>
-  <div class="enquiry-wrap fade-in">
-    <div class="enquiry-info">
-      <div class="enquiry-info-item">
-        <div class="enquiry-icon">✉</div>
-        <div>
-          <h4>Email Us</h4>
-          <a href="mailto:info@smltengineering.com">info@smltengineering.com</a>
-          <a href="mailto:accounts@smltengineering.com">accounts@smltengineering.com</a>
-        </div>
-      </div>
-      <div class="enquiry-info-item">
-        <div class="enquiry-icon">📞</div>
-        <div>
-          <h4>Call Us</h4>
-          <a href="tel:+919392328829">+91 93923 28829</a>
-          <a href="tel:+919392314549">+91 93923 14549</a>
-        </div>
-      </div>
-      <div class="enquiry-info-item">
-        <div class="enquiry-icon">📍</div>
-        <div>
-          <h4>Location</h4>
-          <p>Hyderabad, Telangana, India</p>
-          <p>Serving clients Pan India</p>
-        </div>
-      </div>
-      <div class="enquiry-info-item">
-        <div class="enquiry-icon">🕐</div>
-        <div>
-          <h4>Business Hours</h4>
-          <p>Mon – Sat: 9:00 AM – 6:30 PM</p>
-          <p>Sunday: By Appointment</p>
-        </div>
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="reviews-header fade-in">
+      <p class="section-label" style="color:#FDA86A;justify-content:center">Client Reviews</p>
+      <h2 class="section-title" style="color:white">Trusted by Leading Industries</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.5);margin:0 auto">What procurement managers and plant
+        engineers say about SMLT Engineering</p>
+    </div>
+    <div class="reviews-track-wrap">
+      <div class="reviews-track" id="reviews-track">
+        <!-- rendered by JS -->
       </div>
     </div>
-    <div class="enquiry-form-box">
-      <div id="form-success-msg" class="form-success">
-        <div class="form-success-icon">✅</div>
-        <h3>Enquiry Submitted!</h3>
-        <p>Thank you for reaching out. Our team at SMLT Engineering will get back to you within 24 hours at the email you provided.</p>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why-us" class="section">
+    <div class="section-header centered fade-in">
+      <p class="section-label">Why SMLT Engineering</p>
+      <h2 class="section-title">The Procurement Advantage</h2>
+      <p class="section-subtitle">Why industrial procurement teams across India choose us as their filtration and
+        equipment partner.</p>
+    </div>
+    <div class="why-grid fade-in">
+      <div class="why-card">
+        <div class="why-icon">📦</div>
+        <h3>Single Source Supply</h3>
+        <p>One vendor for filtration cartridges, housings, process tanks, pharma equipment, and on-site services.
+          Simplify your procurement chain.</p>
       </div>
-      <form id="enquiry-form" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Full Name <span>*</span></label>
-            <input class="form-control" type="text" name="name" placeholder="Rajesh Kumar" required/>
-            <div class="form-error">Please enter your name</div>
-          </div>
-          <div class="form-group">
-            <label>Company Name</label>
-            <input class="form-control" type="text" name="company" placeholder="Your Company Pvt. Ltd."/>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Email Address <span>*</span></label>
-            <input class="form-control" type="email" name="email" placeholder="you@company.com" required/>
-            <div class="form-error">Please enter a valid email</div>
-          </div>
-          <div class="form-group">
-            <label>Mobile Number <span>*</span></label>
-            <input class="form-control" type="tel" name="phone" placeholder="+91 98765 43210" required/>
-            <div class="form-error">Please enter your mobile number</div>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Product / Service Interest</label>
-            <select class="form-control form-select" name="product">
-              <option value="">Select a category</option>
-              <option>Filter Cartridges</option>
-              <option>Filter Housings</option>
-              <option>HEPA Filters / Air Filters</option>
-              <option>Pharma Equipment</option>
-              <option>Process Tanks &amp; Vessels</option>
-              <option>Water Treatment Systems</option>
-              <option>AHU Erection &amp; HVAC Services</option>
-              <option>Cleanroom HVAC Services</option>
-              <option>Ducting Services</option>
-              <option>Insulation Services</option>
-              <option>Pipeline Services</option>
-              <option>Fabrication Services</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Quantity / Requirement</label>
-            <input class="form-control" type="text" name="quantity" placeholder="e.g. 10 units, bulk order…"/>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Fast Turnaround</h3>
+        <p>Ready stock of standard products with rapid custom fabrication. Minimise plant downtime with our responsive
+          supply chain.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📋</div>
+        <h3>Compliance Documentation</h3>
+        <p>GMP, FDA, ASME, and IS compliant equipment with full material test certificates, inspection reports, and
+          calibration documents.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔧</div>
+        <h3>After-Sales Support</h3>
+        <p>Dedicated service team for installation, commissioning, preventive maintenance, and emergency breakdown
+          support.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Competitive Pricing</h3>
+        <p>Direct manufacturer pricing with volume discounts for long-term procurement partners. Transparent quotes with
+          no hidden costs.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🗺</div>
+        <h3>Pan India Reach</h3>
+        <p>Serving clients across Hyderabad, Mumbai, Pune, Chennai, Bangalore, Delhi, and all major industrial belts in
+          India.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRY -->
+  <section id="enquiry" class="section">
+    <div class="section-header fade-in">
+      <p class="section-label">Contact Us</p>
+      <h2 class="section-title">Request a Quote or Enquiry</h2>
+      <p class="section-subtitle">Our team responds within 24 hours. For urgent requirements, call us directly.</p>
+    </div>
+    <div class="enquiry-wrap fade-in">
+      <div class="enquiry-info">
+        <div class="enquiry-info-item">
+          <div class="enquiry-icon">✉</div>
+          <div>
+            <h4>Email Us</h4>
+            <a href="mailto:info@smltengineering.com">info@smltengineering.com</a>
+            <a href="mailto:accounts@smltengineering.com">accounts@smltengineering.com</a>
           </div>
         </div>
-        <div class="form-group">
-          <label>Message / Specifications <span>*</span></label>
-          <textarea class="form-control" name="message" rows="5" placeholder="Describe your requirement, specifications, material grade, dimensions, or any specific standards needed…" required></textarea>
-          <div class="form-error">Please enter your requirement</div>
+        <div class="enquiry-info-item">
+          <div class="enquiry-icon">📞</div>
+          <div>
+            <h4>Call Us</h4>
+            <a href="tel:+919392328829">+91 93923 28829</a>
+            <a href="tel:+919392314549">+91 93923 14549</a>
+          </div>
         </div>
-        <button type="submit" class="form-submit" id="form-submit-btn">
-          <span>Send Enquiry to SMLT Engineering</span>
-          <span>→</span>
-        </button>
-        <p style="font-size:12px;color:var(--text-muted);text-align:center;margin-top:12px;">
-          Your enquiry will be sent to info@smltengineering.com
-        </p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer id="footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="nav-logo">
-        <div class="nav-logo-mark" style="background:var(--accent)">SE</div>
-        <div class="nav-logo-text" style="color:white">SMLT <span>Engineering</span></div>
+        <div class="enquiry-info-item">
+          <div class="enquiry-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>Hyderabad, Telangana, India</p>
+            <p>Serving clients Pan India</p>
+          </div>
+        </div>
+        <div class="enquiry-info-item">
+          <div class="enquiry-icon">🕐</div>
+          <div>
+            <h4>Business Hours</h4>
+            <p>Mon – Sat: 9:00 AM – 6:30 PM</p>
+            <p>Sunday: By Appointment</p>
+          </div>
+        </div>
       </div>
-      <p>Industrial filtration, process equipment, and HVAC engineering solutions for pharmaceutical, chemical, and manufacturing industries across India.</p>
-      <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-        <a href="tel:+919392328829" style="font-size:13px;color:rgba(255,255,255,0.55);display:flex;gap:6px;align-items:center;background:rgba(255,255,255,0.05);padding:8px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.08)">
-          📞 +91 93923 28829
-        </a>
-        <a href="mailto:info@smltengineering.com" style="font-size:13px;color:rgba(255,255,255,0.55);display:flex;gap:6px;align-items:center;background:rgba(255,255,255,0.05);padding:8px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.08)">
-          ✉ info@smltengineering.com
-        </a>
+      <div class="enquiry-form-box">
+        <div id="form-success-msg" class="form-success">
+          <div class="form-success-icon">✅</div>
+          <h3>Enquiry Submitted!</h3>
+          <p>Thank you for reaching out. Our team at SMLT Engineering will get back to you within 24 hours at the email
+            you provided.</p>
+        </div>
+        <form id="enquiry-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name <span>*</span></label>
+              <input class="form-control" type="text" name="name" placeholder="Rajesh Kumar" required />
+              <div class="form-error">Please enter your name</div>
+            </div>
+            <div class="form-group">
+              <label>Company Name</label>
+              <input class="form-control" type="text" name="company" placeholder="Your Company Pvt. Ltd." />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Address <span>*</span></label>
+              <input class="form-control" type="email" name="email" placeholder="you@company.com" required />
+              <div class="form-error">Please enter a valid email</div>
+            </div>
+            <div class="form-group">
+              <label>Mobile Number <span>*</span></label>
+              <input class="form-control" type="tel" name="phone" placeholder="+91 98765 43210" required />
+              <div class="form-error">Please enter your mobile number</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Product / Service Interest</label>
+              <select class="form-control form-select" name="product">
+                <option value="">Select a category</option>
+                <option>Filter Cartridges</option>
+                <option>Filter Housings</option>
+                <option>HEPA Filters / Air Filters</option>
+                <option>Pharma Equipment</option>
+                <option>Process Tanks &amp; Vessels</option>
+                <option>Water Treatment Systems</option>
+                <option>AHU Erection &amp; HVAC Services</option>
+                <option>Cleanroom HVAC Services</option>
+                <option>Ducting Services</option>
+                <option>Insulation Services</option>
+                <option>Pipeline Services</option>
+                <option>Fabrication Services</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Quantity / Requirement</label>
+              <input class="form-control" type="text" name="quantity" placeholder="e.g. 10 units, bulk order…" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Message / Specifications <span>*</span></label>
+            <textarea class="form-control" name="message" rows="5"
+              placeholder="Describe your requirement, specifications, material grade, dimensions, or any specific standards needed…"
+              required></textarea>
+            <div class="form-error">Please enter your requirement</div>
+          </div>
+          <button type="submit" class="form-submit" id="form-submit-btn">
+            <span>Send Enquiry to SMLT Engineering</span>
+            <span>→</span>
+          </button>
+          <p style="font-size:12px;color:var(--text-muted);text-align:center;margin-top:12px;">
+            Your enquiry will be sent to info@smltengineering.com
+          </p>
+        </form>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Products</h4>
-      <ul>
-        <li><a href="#products">Filter Cartridges</a></li>
-        <li><a href="#products">Filter Housings</a></li>
-        <li><a href="#products">HEPA Filters</a></li>
-        <li><a href="#products">Pharma Equipment</a></li>
-        <li><a href="#products">Process Tanks</a></li>
-        <li><a href="#products">Water Treatment</a></li>
-      </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="nav-logo-mark" style="background:var(--accent)">SE</div>
+          <div class="nav-logo-text" style="color:white">SMLT <span>Engineering</span></div>
+        </div>
+        <p>Industrial filtration, process equipment, and HVAC engineering solutions for pharmaceutical, chemical, and
+          manufacturing industries across India.</p>
+        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="tel:+919392328829"
+            style="font-size:13px;color:rgba(255,255,255,0.55);display:flex;gap:6px;align-items:center;background:rgba(255,255,255,0.05);padding:8px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.08)">
+            📞 +91 93923 28829
+          </a>
+          <a href="mailto:info@smltengineering.com"
+            style="font-size:13px;color:rgba(255,255,255,0.55);display:flex;gap:6px;align-items:center;background:rgba(255,255,255,0.05);padding:8px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.08)">
+            ✉ info@smltengineering.com
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">Filter Cartridges</a></li>
+          <li><a href="#products">Filter Housings</a></li>
+          <li><a href="#products">HEPA Filters</a></li>
+          <li><a href="#products">Pharma Equipment</a></li>
+          <li><a href="#products">Process Tanks</a></li>
+          <li><a href="#products">Water Treatment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">AHU Erection</a></li>
+          <li><a href="#services">Cleanroom HVAC</a></li>
+          <li><a href="#services">Ducting Services</a></li>
+          <li><a href="#services">Insulation Services</a></li>
+          <li><a href="#services">Pipeline Services</a></li>
+          <li><a href="#services">Fabrication Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="#enquiry">Pharmaceuticals</a></li>
+          <li><a href="#enquiry">Chemical Industry</a></li>
+          <li><a href="#enquiry">Food &amp; Beverage</a></li>
+          <li><a href="#enquiry">Water Treatment</a></li>
+          <li><a href="#enquiry">Power Plants</a></li>
+          <li><a href="#enquiry">Oil &amp; Gas</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#services">AHU Erection</a></li>
-        <li><a href="#services">Cleanroom HVAC</a></li>
-        <li><a href="#services">Ducting Services</a></li>
-        <li><a href="#services">Insulation Services</a></li>
-        <li><a href="#services">Pipeline Services</a></li>
-        <li><a href="#services">Fabrication Services</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>© 2025 SMLT Engineering, Hyderabad, Telangana, India. All rights reserved.</p>
+      <div class="footer-cert">
+        <span>GMP Compliant</span>
+        <span>ASME Standards</span>
+        <span>IS Certified</span>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Industries</h4>
-      <ul>
-        <li><a href="#enquiry">Pharmaceuticals</a></li>
-        <li><a href="#enquiry">Chemical Industry</a></li>
-        <li><a href="#enquiry">Food &amp; Beverage</a></li>
-        <li><a href="#enquiry">Water Treatment</a></li>
-        <li><a href="#enquiry">Power Plants</a></li>
-        <li><a href="#enquiry">Oil &amp; Gas</a></li>
-      </ul>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/919392328829?text=Hello%20SMLT%20Engineering%2C%20I%20would%20like%20to%20enquire%20about%20your%20products%20and%20services."
+    class="wa-float" target="_blank" rel="noopener" title="WhatsApp Us">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  </a>
+
+  <!-- SERVICE MODAL -->
+  <div class="modal-overlay" id="service-modal" onclick="closeServiceModal(event)">
+    <div class="modal-box" id="service-modal-box">
+      <div class="modal-header">
+        <h2 id="smodal-title"></h2>
+        <button class="modal-close" onclick="closeServiceModal()">✕</button>
+      </div>
+      <div id="smodal-img-wrap"></div>
+      <div class="modal-body" id="smodal-body"></div>
+      <div class="modal-footer">
+        <a href="#enquiry" class="btn-primary" onclick="closeServiceModal()"
+          style="font-size:14px;padding:10px 24px">Request This Service →</a>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2025 SMLT Engineering, Hyderabad, Telangana, India. All rights reserved.</p>
-    <div class="footer-cert">
-      <span>GMP Compliant</span>
-      <span>ASME Standards</span>
-      <span>IS Certified</span>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal-overlay" id="product-modal" onclick="closeProductModal(event)">
+    <div class="modal-box" id="product-modal-box">
+      <div class="modal-header">
+        <h2 id="pmodal-title"></h2>
+        <button class="modal-close" onclick="closeProductModal()">✕</button>
+      </div>
+      <div id="pmodal-img-wrap"></div>
+      <div class="modal-body" id="pmodal-body"></div>
+      <div class="modal-footer">
+        <a href="#enquiry" class="btn-primary" onclick="closeProductModal()"
+          style="font-size:14px;padding:10px 24px">Enquire About This Product →</a>
+        <button onclick="copyProductEnquiry();closeProductModal();"
+          style="padding:10px 24px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:14px;font-weight:600;color:var(--text-mid);font-family:'Syne',sans-serif;cursor:pointer;background:white;transition:all 0.2s;"
+          onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'"
+          onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-mid)'">Copy Product
+          Name</button>
+      </div>
     </div>
   </div>
-</footer>
 
-<!-- BACK TO TOP -->
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+  <script>
+    // ===== DATA =====
+    const PRODUCTS = [
+      { "id": "absolute-pleated-filter-cartridge", "name": "Absolute Pleated Filter Cartridge", "image": "./images/products/ABSOLUTE PLEATED- FILTER CARTRIDGE.jpg", "category": "filter", "specifications": { "Filter Type": "Absolute Pleated Filter Cartridge", "Media Type": "High Efficiency Microglass Fibre / Polypropylene (PP) Pleated Media", "Efficiency Rating": "Absolute Filtration (99.9% efficiency)", "Micron Rating": "0.1 – 50 µm (as per requirement)", "Core Material": "SS304 / SS316 Perforated Support Core", "Construction Type": "Pleated Cartridge Design for Maximum Surface Area & High Flow Rate", "Filtration Type": "Surface + Depth Filtration for High Precision Removal", "Temperature Resistance": "Up to 80°C – 120°C", "Pressure Rating": "Up to 6 – 10 bar", "Length Options": "10\", 20\", 30\", 40\"", "Application": "Pharmaceuticals, Chemicals, Food & Beverage, Electronics, RO Pre-Filtration" } },
+      { "id": "air-oil-filter-cartridges", "name": "Air & Oil Filter Cartridges", "image": "./images/products/AIR & OIL FILTER CATRIDGES.jpg", "category": "filter", "specifications": { "Filter Type": "Air & Oil Filter Cartridges", "Media Type": "High Efficiency Filter Paper / Micro glass Fibre / Synthetic Media", "Micron Rating": "1 – 50 µm (Air); 3 – 25 µm (Oil)", "Efficiency Class": "G3 / G4 / M5 / M6 / F7 / F8", "Operating Pressure": "Air: Low Pressure HVAC; Oil: Up to 420 bar", "Temperature Resistance": "Up to 70°C – 120°C", "Application": "Compressors, Hydraulic Systems, Engines, HVAC Systems" } },
+      { "id": "air-filters-pocket-type", "name": "Air Filters – Pocket Type", "image": "./images/products/AIR FILTERS- POCKET TYPE.jpg", "category": "air", "specifications": { "Filter Type": "Air Filters – Pocket Type", "Media Type": "Synthetic Fiber / Glass Fibre / Non-Woven Filter Media", "Efficiency Class": "G3 / G4 / M5 / M6 / F7 / F8 / F9", "Construction Type": "Multi-Pocket Design", "Micron Rating": "1 – 25 µm", "Temperature Resistance": "Up to 70°C – 90°C", "Application": "HVAC Systems, AHU Units, Clean Rooms, Pharmaceutical Industries" } },
+      { "id": "basket-filters-cartridge-type", "name": "Basket Filters – Cartridge Type", "image": "./images/products/BASKET FILTERS – CATRIDGE TYPE.jpg", "category": "filter", "specifications": { "Filter Type": "Basket Filters – Cartridge Type", "Media Type": "SS316 / SS304 Wire Mesh / Perforated Sheet", "Micron Rating": "10 – 500 µm", "Pressure Rating": "Up to 25 bar", "Temperature Resistance": "Up to 200°C", "Cleaning Type": "Washable / Reusable / Backflush Compatible", "Application": "Chemical Industry, Oil & Gas, Water Treatment, Petrochemical Plants" } },
+      { "id": "candy-filters", "name": "Candy Filters", "image": "./images/products/CANDY FILTERS.png", "category": "filter", "specifications": { "Filter Type": "Candy Filters", "Application": "Industrial Filtration Systems" } },
+      { "id": "chemical-receivers", "name": "Chemical Receivers", "image": "./images/products/CHEMICAL RECEIVERS.jpg", "category": "tank", "specifications": { "Product Type": "Chemical Receivers", "Application": "Chemical Processing & Industrial Systems" } },
+      { "id": "compressed-air-filters-with-housings", "name": "Compressed Air Filters with Housings", "image": "./images/products/COMPRESSED AIR FILTERS WITH HOUSINGS.jpg", "category": "air", "specifications": { "Filter Type": "Compressed Air Filters with Housings", "Body Material": "Aluminium Alloy / SS304 / SS316", "Filter Elements": "Coalescing / Particulate / Activated Carbon", "Micron Rating": "0.01 – 25 µm", "Operating Pressure": "Up to 16 – 40 bar", "Temperature Resistance": "Up to 60°C – 120°C", "Application": "Compressor Systems, Pneumatic Tools, Pharmaceutical & Food Grade Air" } },
+      { "id": "double-cone-blender", "name": "Double Cone Blender", "image": "./images/products/DOUBLE CONE BLENDER.jpg", "category": "pharma", "specifications": { "Product Type": "Double Cone Blender", "Material": "SS304 / SS316 (GMP Grade)", "Surface Finish": "Mirror Polished / Matt Finish", "Capacity Range": "5 Kg – 5000 Kg per batch", "Working Principle": "Gentle Tumbling Action for Homogeneous Mixing", "Drive System": "Flame Proof / Standard Motor with Gearbox", "Application": "Pharmaceuticals, Chemicals, Food & Beverage" } },
+      { "id": "duplex-strainers", "name": "Duplex Strainers", "image": "./images/products/DUPLEX STRAINERS.jpg", "category": "strainer", "specifications": { "Filter Type": "Duplex Strainers", "Body Material": "SS304 / SS316 / MS / Carbon Steel", "Design Type": "Two Chamber Duplex – Continuous Operation", "Micron Rating": "50 – 5000 µm", "Pressure Rating": "Up to 10 – 40 bar", "Temperature Resistance": "Up to 200°C", "Application": "Water Systems, Oil & Gas, Chemical Industry, Petrochemical Plants" } },
+      { "id": "fluid-bed-dryer", "name": "Fluid Bed Dryer", "image": "./images/products/FLUID BED DRYER.jpg", "category": "dryer", "specifications": { "Product Type": "Fluid Bed Dryer", "Material": "SS304 / SS316 (GMP Grade)", "Design Standard": "GMP / FDA Compliant", "Application": "Pharmaceuticals, Chemicals, Food Processing, Granule & Powder Drying" } },
+      { "id": "frp-filter-housings", "name": "FRP Filter Housings", "image": "./images/products/FRP FILTER HOUSINGS.jpg", "category": "housing", "specifications": { "Filter Type": "FRP Filter Housings", "Body Material": "Fiberglass Reinforced Plastic", "Cartridge Compatibility": "10\" / 20\" / 30\" / 40\"", "Pressure Rating": "Up to 6 – 10 bar", "Temperature Resistance": "Up to 60°C – 80°C", "Application": "Water Treatment, RO Systems, Chemical Processing, Pharmaceuticals" } },
+      { "id": "gas-liquid-filtration-bag-type", "name": "Gas & Liquid Filtration – Bag Type", "image": "./images/products/GAS &LIQUID FILTERATION BAG TYPE.jpg", "category": "filter", "specifications": { "Filter Type": "Gas & Liquid Filtration – Bag Type", "Application": "Industrial Gas & Liquid Filtration, Chemical Processing, Water Treatment" } },
+      { "id": "hepa-filters", "name": "HEPA Filters – High Efficiency Particulate Air", "image": "./images/products/HEPA-FILTERS HIGH EFFICIENCY PARTICULATE AIR.jpg", "category": "air", "specifications": { "Filter Type": "HEPA Filters", "Media Type": "Microglass Fibre (High Density Pleated)", "Efficiency Class": "H10 / H11 / H12 / H13 / H14 (EN 1822)", "Micron Rating": "0.3 µm – 99.97% to 99.995% efficiency", "Frame Material": "Aluminium / GI Steel / SS304 / SS316", "Leak Test": "DOP / PAO Tested", "Application": "Clean Rooms, Pharma, Hospitals, Operation Theatres, Electronics Manufacturing" } },
+      { "id": "integrated-process-containers", "name": "Integrated Process Containers (IPC Bins)", "image": "./images/products/INTEGREATED PROCESS CONTAINERS.jpg", "category": "pharma", "specifications": { "Product Type": "Integrated Process Containers (IPC Bins)", "Material": "SS304 / SS316L (GMP Grade)", "Surface Finish": "Mirror Polished / Electro-Polished", "Capacity Range": "50 – 2000 Litre", "Mobility": "Fixed / Movable with SS Castor Wheels", "Cleaning Compatibility": "CIP / SIP Compatible", "Application": "Pharma Manufacturing, API Plants, Granulation, Blending, Powder Handling" } },
+      { "id": "jacketed-reaction-pressure-vessel", "name": "Jacketed Reaction Pressure Vessel", "image": "./images/products/JACKED REACTION PRESSURE VESSEL.jpg", "category": "tank", "specifications": { "Product Type": "Jacketed Reaction Pressure Vessel", "Material": "SS304 / SS316L (GMP / Industrial Grade)", "Design Standard": "ASME / GMP / FDA Compliant", "Capacity Range": "50 Litre – 20,000 Litre", "Jacket Type": "Half Coil / Dimple / Full Jacket / Limpet Coil", "Pressure Rating": "Up to 3 – 10 bar (Inner); Up to 3 – 6 bar (Jacket)", "Application": "Pharmaceuticals, Chemicals, API Manufacturing, Food Processing" } },
+      { "id": "multiple-filter-housings", "name": "Multiple Filter Housings", "image": "./images/products/MULTIPLE FILTER- HOUSINGS.jpg", "category": "housing", "specifications": { "Filter Type": "Multiple Filter Housings", "Body Material": "SS304 / SS316 / MS / FRP", "Design Type": "Multi-Cartridge (3/5/7/9/12/19 Elements)", "Pressure Rating": "Up to 10 – 25 bar", "Application": "Water Treatment, Chemical Processing, Pharmaceuticals, RO Systems" } },
+      { "id": "panel-type-air-filters", "name": "Panel Type Air Filters", "image": "./images/products/PANEL TYPE AIR FILTERS.jpg", "category": "air", "specifications": { "Filter Type": "Panel Type Air Filters", "Media Type": "Synthetic Fiber / Glass Fibre / Non-Woven", "Efficiency Class": "G3 / G4 / M5 / M6 / F5 / F6", "Temperature Resistance": "Up to 70°C – 90°C", "Application": "HVAC Systems, AHU Units, Clean Rooms, Pharmaceutical Industries" } },
+      { "id": "paper-filters-panel-cartridge-type", "name": "Paper Filters – Panel & Cartridge Type", "image": "./images/products/PAPER FILTERS PANEL AND CATRIDGE TYPE.jpg", "category": "filter", "specifications": { "Filter Type": "Paper Filters – Panel & Cartridge", "Media Type": "High Efficiency Filter Paper (Cellulose / Synthetic Fiber Blend)", "Efficiency Class": "G3 / G4 / F5 / F6 / F7 / F8 / F9", "Micron Rating": "1 – 25 µm", "Application": "HVAC, AHU Units, Clean Rooms, Pharma, Paint Booths, Electronics" } },
+      { "id": "pharma-furniture", "name": "Pharma Furniture", "image": "./images/products/PHARMA FURNITURE.jpg", "category": "pharma", "specifications": { "Product Type": "Pharma Furniture", "Material": "SS304 / SS316 (Hygienic Grade)", "Design Standard": "GMP / FDA Compliant", "Range": "Work Tables / Cabinets / Trolleys / Shoe Racks / Sink Units / Utility Racks", "Application": "Pharma Manufacturing, Clean Rooms, Laboratories, Hospitals" } },
+      { "id": "pharma-spares", "name": "Pharma Spares", "image": "./images/products/PHARMA SPARES.jpg", "category": "pharma", "specifications": { "Product Type": "Pharma Spares", "Material": "SS316L / PTFE / Silicone / EPDM / Viton (GMP)", "Components": "Gaskets / Seals / O-Rings / Valves / Spray Balls / Ferrules / Sight Glass", "Cleaning Compatibility": "CIP / SIP Compatible", "Application": "Pharma Manufacturing, Biotech, Food & Beverage, Dairy Plants" } },
+      { "id": "pleated-type-cartridges", "name": "Pleated Type Cartridges", "image": "./images/products/PLEATED TYPE CARTRIDGES.jpg", "category": "filter", "specifications": { "Filter Type": "Pleated Type Cartridges", "Application": "Water Treatment, Pharmaceuticals, Chemicals, Food & Beverage, Industrial Liquid Filtration" } },
+      { "id": "pollution-control-bag-cartridge-filters", "name": "Pollution Control Bag/Cartridge Filters", "image": "./images/products/POLLUTION CONTROL BAGCATRIDGE TYPE FILTERS.jpg", "category": "filter", "specifications": { "Filter Type": "Pollution Control Bag / Cartridge Type Filters", "Media Type": "Polyester / PP / Acrylic / Nomex / PTFE Coated", "Micron Rating": "1 – 100 µm", "Temperature Resistance": "Up to 80°C – 260°C", "Cleaning System": "Pulse Jet / Reverse Air / Mechanical Shaker", "Application": "Cement Plants, Steel Plants, Power Plants, Boilers, Pharma, Chemical Industries" } },
+      { "id": "pp-filter-housings", "name": "PP Filter Housings", "image": "./images/products/PP FILTERS HOUSINGS.jpg", "category": "housing", "specifications": { "Filter Type": "PP Filter Housings", "Body Material": "Polypropylene (PP) – Corrosion & Chemical Resistant", "Application": "Water Treatment, Chemical Processing, Food & Beverage" } },
+      { "id": "pressure-nutch-filter", "name": "Pressure Nutch Filter", "image": "./images/products/PRESSURE NUTCH FILTER.jpg", "category": "tank", "specifications": { "Product Type": "Pressure Nutch Filter", "Material": "SS304 / SS316L (GMP / Industrial Grade)", "Design Standard": "GMP / FDA / ASME Compliant", "Capacity Range": "50 – 5000 Litres", "Pressure Rating": "Up to 3 – 6 bar", "Filtration Type": "Cake Filtration / Solid-Liquid Separation", "Application": "Pharmaceuticals, Chemicals, API Plants, Dyes & Intermediates" } },
+      { "id": "pressure-vessel", "name": "Pressure Vessel", "image": "./images/products/PRESSURE VESSEL.jpg", "category": "tank", "specifications": { "Product Type": "Pressure Vessel", "Material": "SS304 / SS316 / Carbon Steel / MS", "Design Standard": "ASME Section VIII / GMP", "Capacity Range": "50 – 50,000 Litres", "Pressure Rating": "Up to 3 – 40 bar", "Temperature Range": "Up to 250°C", "Application": "Pharmaceuticals, Chemicals, Oil & Gas, Water Treatment" } },
+      { "id": "ro-dm-water-plants", "name": "R.O & D.M Water Plants", "image": "./images/products/R.O & D.M WATER PLANTS.jpg", "category": "water", "specifications": { "System Type": "RO & DM Water Plants", "RO Membrane Type": "Thin Film Composite (TFC) High Rejection Membranes", "TDS Reduction": "Up to 95% – 99%", "Operating Pressure": "Up to 10 – 25 bar", "Recovery Rate": "50% – 75%", "Control System": "Manual / Semi-Auto / Fully Automatic PLC", "Application": "Pharmaceuticals, Chemicals, Boilers, Power Plants, Hospitals" } },
+      { "id": "single-cartridge-filters", "name": "Single Cartridge Filters", "image": "./images/products/SINGLE CARTRIDGE FILTERS.jpg", "category": "filter", "specifications": { "Filter Type": "Single Cartridge Filters", "Micron Rating": "0.1 – 100 µm", "Cartridge Size": "10\" / 20\" / 30\" / 40\"", "Efficiency Rating": "Up to 99.9%", "Pressure Rating": "Up to 6 – 10 bar", "Application": "Water Treatment, Pharmaceuticals, Chemicals, Food & Beverage" } },
+      { "id": "single-cartridge-housings", "name": "Single Cartridge Housings", "image": "./images/products/SINGLE CARTRIDGE HOUSINGS.jpg", "category": "housing", "specifications": { "Filter Type": "Single Cartridge Filter Housings", "Body Material": "SS304 / SS316 / MS / FRP", "Pressure Rating": "Up to 10 – 25 bar", "Surface Finish": "Mirror Polished / Matt Finish (SS)", "Application": "Water Filtration, Chemical Industry, Pharmaceuticals, RO Systems" } },
+      { "id": "sintered-bronze-filter-cartridges", "name": "Sintered Bronze Filter Cartridges", "image": "./images/products/SINTERED BRONZE  FILTER CARTRIDGES.jpg", "category": "filter", "specifications": { "Filter Type": "Sintered Bronze Filter Cartridges", "Micron Rating": "1 – 100 µm (absolute)", "Pressure Rating": "Up to 200 – 300 bar", "Temperature Resistance": "Up to 250°C – 400°C", "Cleaning Type": "Backwash / Ultrasonic / Reusable", "Application": "Pneumatic Systems, Hydraulic, Oil Filtration, Gas Filtration" } },
+      { "id": "sintered-cartridges", "name": "Sintered Cartridges", "image": "./images/products/SINTERED CARTRIDGES.jpg", "category": "filter", "specifications": { "Filter Type": "Sintered Filter Cartridges", "Media Type": "Sintered SS316 / SS304 / Bronze / Titanium", "Micron Rating": "0.5 – 100 µm", "Pressure Rating": "Up to 200 – 420 bar", "Temperature Resistance": "Up to 300°C – 600°C", "Application": "Chemical, Petrochemical, Gas Filtration, Pharma High-Pressure Filtration" } },
+      { "id": "solution-preparation-tanks", "name": "Solution Preparation Tanks", "image": "./images/products/SOLUTION PREPARATION TANKS.jpg", "category": "tank", "specifications": { "Product Type": "Solution Preparation Tanks", "Material": "SS304 / SS316L (GMP Grade)", "Capacity Range": "50 – 10,000 Litre", "Agitator Type": "Top / Bottom / Side Entry", "Temperature Resistance": "Up to 150°C", "Cleaning Compatibility": "CIP / SIP Compatible", "Application": "Pharmaceuticals, Chemicals, Food & Beverage, Cosmetics, API Manufacturing" } },
+      { "id": "spun-bonded-filter-cartridges", "name": "Spun Bonded / Thermal Bonded Filter Cartridges", "image": "./images/products/SPUN BONDED- THERMAL BONDED- FILTER CARTRIDGES.jpg", "category": "filter", "specifications": { "Filter Type": "Spun Bonded / Thermal Bonded Filter Cartridges", "Application": "Water Treatment, Pharmaceuticals, Chemicals, Food & Beverage" } },
+      { "id": "storage-tanks", "name": "Storage Tanks", "image": "./images/products/STORAGE TANKS.jpg", "category": "tank", "specifications": { "Product Type": "Storage Tanks", "Material": "SS304 / SS316 / MS / FRP", "Capacity Range": "50 – 100,000 Litres", "Construction": "Vertical / Horizontal Cylindrical", "Pressure Rating": "Atmospheric / Low Pressure / Pressure Vessel", "Application": "Pharmaceuticals, Chemicals, Food & Beverage, Water Treatment, Oil & Gas" } },
+      { "id": "tray-dryer", "name": "Tray Dryer", "image": "./images/products/TRAY DRYER.jpg", "category": "dryer", "specifications": { "Product Type": "Tray Dryer", "Material": "SS304 / SS316 / MS", "Capacity Range": "50 Kg – 2000 Kg per batch", "Heating System": "Steam / Electrical / Hot Water / Thermic Fluid", "Temperature Range": "Up to 50°C – 150°C", "Application": "Pharmaceuticals, Chemicals, Food Processing, Powder Drying" } },
+      { "id": "v-bank-mini-pleat-filters", "name": "V-Bank Type Mini-Pleat Filters", "image": "./images/products/V - BANK TYPE MINI-PLEAT FILTERS.jpg", "category": "air", "specifications": { "Filter Type": "V-Bank Type Mini-Pleat Filters", "Efficiency Class": "MERV 13 / MERV 14 / MERV 15 / F7 / F8 / F9", "Micron Rating": "0.3 – 10 µm", "Construction Type": "V-Shape Rigid Frame Multi-Panel Mini Pleat", "Application": "HVAC, AHU Units, Data Centers, Hospitals, Pharmaceutical Plants, Clean Rooms" } },
+      { "id": "vacuum-pump-spares", "name": "Vacuum Pump Spares", "image": "./images/products/VACUUM PUMP SPARES.jpg", "category": "pharma", "specifications": { "Product Type": "Vacuum Pump Spares", "Components": "Rotors / Vanes / Seals / Gaskets / Filters / Bearings / Oil Mist Separators", "Material": "SS304 / SS316 / Carbon Steel / PTFE / Graphite / Viton", "Temperature Resistance": "Up to 80°C – 200°C", "Application": "Pharma, Chemicals, Packaging, Food Processing, Power Plants" } },
+      { "id": "vacuum-trap", "name": "Vacuum Trap", "image": "./images/products/VACUUM TRAP.jpg", "category": "pharma", "specifications": { "Product Type": "Vacuum Trap", "Material": "SS304 / SS316 / Borosilicate Glass", "Capacity Range": "1 – 500 Litres", "Function": "Prevents Liquid & Contaminants from Entering Vacuum Pump", "Operating Pressure": "Full Vacuum to Atmospheric", "Application": "Pharma Plants, Chemical Industry, Distillation, Filtration Units" } },
+      { "id": "vacuum-tray-dryer", "name": "Vacuum Tray Dryer", "image": "./images/products/VACUUM TRAY DRYER.jpg", "category": "dryer", "specifications": { "Product Type": "Vacuum Tray Dryer", "Material": "SS304 / SS316 / SS316L (GMP Grade)", "Design Standard": "GMP / FDA Compliant", "Capacity Range": "50 Kg – 2000 Kg per batch", "Operating Vacuum": "Up to 760 mm Hg", "Heating System": "Steam / Hot Water / Thermic Fluid", "Application": "Pharmaceuticals, API Drying, Heat Sensitive Materials" } },
+      { "id": "vibro-sifter", "name": "Vibro Sifter", "image": "./images/products/VIBRO SHIFTER.jpg", "category": "pharma", "specifications": { "Product Type": "Vibro Sifter", "Material": "SS304 / SS316 (GMP Grade)", "Screen Diameter": "12\" – 60\"", "Mesh Size": "4 – 400 Mesh", "Capacity Range": "50 – 5000 Kg/hr", "Application": "Pharmaceuticals, Chemicals, Food Processing, Powder Sieving & Grading" } },
+      { "id": "water-plant-membranes", "name": "Water Plant Membranes", "image": "./images/products/WATER PLANT MEMBRANES.jpg", "category": "water", "specifications": { "Filter Type": "Water Plant Membranes (RO)", "Membrane Type": "Thin Film Composite (TFC) Polyamide Spiral Wound", "Micron Rating": "0.0001 µm", "Salt Rejection": "95% – 99.5%", "Operating Pressure": "Up to 15 – 69 bar", "Application": "RO Water Plants, Drinking Water, Industrial Water Treatment, Pharmaceuticals" } },
+      { "id": "y-strainers", "name": "Y-Strainers", "image": "./images/products/Y-STRAINERS.jpg", "category": "strainer", "specifications": { "Filter Type": "Y-Strainers", "Body Material": "SS304 / SS316 / MS / Carbon Steel", "Design Type": "Y-Shape Compact Inline Strainer", "Micron Rating": "50 – 5000 µm", "Pressure Rating": "Up to 10 – 40 bar", "Temperature Resistance": "Up to 200°C", "Application": "Water Systems, Steam Lines, Oil & Gas, Pump Protection" } },
+      { "id": "yarn-wound-filter-cartridges", "name": "Yarn Wound Filter Cartridges", "image": "./images/products/YARN WOUND- FILTER CARTRIDGES.jpg", "category": "filter", "specifications": { "Filter Type": "Yarn Wound Filter Cartridges", "Media Type": "PP / Cotton / Glass Fibre Yarn", "Micron Rating": "1 – 100 µm (nominal)", "Pressure Rating": "Up to 6 – 10 bar", "Temperature Resistance": "Up to 60°C – 80°C", "Application": "Water Treatment, Chemical Processing, Pharmaceuticals, Food & Beverage" } },
+      { "id": "zero-hold-up-filter-press", "name": "Zero Hold Up Filter Press", "image": "./images/products/ZERO HOLD UP FILTER PRESS.jpg", "category": "filter", "specifications": { "Product Type": "Zero Hold Up Filter Press", "Material": "SS304 / SS316 / MS Rubber Lined / PP", "Design Standard": "GMP / Industrial Hygienic Design", "Operating Pressure": "Up to 7 – 15 bar", "Filtration Area": "0.5 – 100 m²", "Application": "Pharmaceuticals, Chemicals, API Plants, Food & Beverage, Fine Chemicals" } }
+    ];
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/919392328829?text=Hello%20SMLT%20Engineering%2C%20I%20would%20like%20to%20enquire%20about%20your%20products%20and%20services."
-   class="wa-float" target="_blank" rel="noopener" title="WhatsApp Us">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-</a>
+    const SERVICES = [
+      { "id": "ahu-erection-and-services", "name": "AHU Erection & Services", "image": "./images/services/AHU ERECTION AND SERVICES.jpg", "summary": "Complete supply, installation, maintenance, and repair of Air Handling Units for HVAC systems in industrial and pharmaceutical facilities.", "sections": [{ "title": "Erection & Installation", "points": ["Supply, shifting & positioning of AHU units", "Alignment & leveling on MS base frame / concrete base", "Vibration isolator installation (spring / rubber type)", "Duct connection alignment with proper sealing", "Outdoor & indoor AHU installation"] }, { "title": "Maintenance Services", "points": ["Filter cleaning & replacement (Pre / Fine / HEPA)", "Cooling coil cleaning (chemical & water wash)", "Fan blower inspection & maintenance", "Motor & belt alignment checking"] }, { "title": "Repair & Breakdown Service", "points": ["Fan motor repair & replacement", "Bearing replacement & lubrication", "VFD & electrical panel troubleshooting", "Emergency shutdown maintenance support"] }, { "title": "Air Balancing Work", "points": ["Airflow measurement (CFM balancing)", "Static pressure adjustment", "Supply & return air balancing", "Cleanroom pressure balancing support"] }], "equipment": ["AHU (Air Handling Units)", "FCU (Fan Coil Units)", "Fresh Air Handling Units", "Dehumidifier systems", "HVAC duct systems"] },
+      { "id": "cleanroom-hvac-services", "name": "Cleanroom HVAC Services", "image": "./images/services/CLEANROOM HVAC SERVICES.jpg", "summary": "Design, installation, and validation of HVAC systems for ISO and GMP-compliant cleanrooms in pharmaceutical and manufacturing facilities.", "sections": [{ "title": "Design & Installation", "points": ["HVAC system design as per ISO / GMP standards", "Temperature, humidity & pressure control system setup", "Laminar airflow & turbulence-free environment design", "Air change per hour (ACH) calculation & planning"] }, { "title": "Cleanroom Classification", "points": ["Class 100 / 1000 / 10,000 / 100,000 cleanroom setup", "Pressure differential maintenance (Positive / Negative)", "Particle control & contamination prevention", "ISO & GMP compliance support"] }, { "title": "HEPA Filter Services", "points": ["HEPA filter installation & replacement", "DOP / PAO testing for filter integrity", "Pre-filter & fine filter maintenance", "Air purity level monitoring support"] }, { "title": "Validation & Testing", "points": ["Airflow velocity testing", "Particle count testing", "Smoke test for airflow direction", "HVAC qualification support (IQ/OQ/PQ)"] }] },
+      { "id": "ducting-services", "name": "Ducting Services", "image": "./images/services/DUCTING SERVICES.png", "summary": "Fabrication, erection, and dismantling of GI, MS, SS, and aluminium duct systems for HVAC, pharma, and industrial ventilation applications.", "sections": [{ "title": "Ducting Erection", "points": ["GI / MS / SS304/SS316 / Aluminium duct installation", "As per SMACNA / IS standards", "Flanged joints / TDC / Slip & Drive connections", "GI/MS angle supports and threaded rod suspension", "Applications: HVAC, cleanrooms, pharma, food plants"] }, { "title": "Ducting Removal (Dismantling)", "points": ["Safe dismantling of existing duct systems", "Removal of insulation (if present)", "Cutting & segment-wise dismantling", "PPE and scaffolding safety compliance"] }] },
+      { "id": "fabrication-services", "name": "Fabrication Services", "image": "./images/services/FABRICATION SERVICES.png", "summary": "Custom industrial fabrication of equipment, structures, piping, tanks, vessels, and skid units in SS, MS, carbon steel, aluminium, and FRP.", "specifications": { "Service Type": "Industrial Fabrication Services", "Fabrication Material": "SS304 / SS316 / MS / Carbon Steel / Aluminium / FRP", "Fabrication Scope": "Equipment, Structures, Piping, Tanks, Vessels & Skid Units", "Work Types": "Cutting / Bending / Rolling / Welding / Assembly / Machining", "Welding Process": "TIG / MIG / ARC / Orbital Welding", "Surface Finish": "Mirror Polished / Matt Finish / Sand Blasting / Epoxy Coating", "Fabrication Standards": "GMP / ASME / IS Standards", "Quality Control": "Dimensional Inspection / Pressure Testing / NDT", "Application Industries": "Pharmaceuticals, Chemicals, Food & Beverage, Power Plants, Water Treatment, Oil & Gas" } },
+      { "id": "insulation-services", "name": "Insulation Services", "image": "./images/services/INSULATION SERVICES.png", "summary": "Thermal, foam, and cold insulation services for pipelines, equipment, and duct systems in industrial, pharma, and HVAC applications.", "sections": [{ "title": "Pipe Line Puff Insulation", "points": ["Material: Rigid Polyurethane Foam (PUF)", "Density: 36–40 kg/m³, Conductivity: 0.022–0.028 W/mK", "Thickness: 25 – 150 mm", "Cladding: GI Sheet / Aluminum / SS304", "Temperature Range: -50°C to +120°C"] }, { "title": "Thermal Insulation (Hot & Cold)", "points": ["Material: Glass Wool / Rock Wool / Ceramic Fiber", "Density: 48–120 kg/m³, Thickness: 25–100 mm", "Operating Temperature: Up to 750°C", "Applications: Steam lines, hot oil lines, industrial pipelines"] }, { "title": "Equipment & Duct Insulation", "points": ["Insulated Equipment: Tanks, vessels, reactors, boilers", "Jacketing: SS304 / Aluminum / GI sheet", "Duct insulation with glass wool / elastomeric foam", "Temperature Resistance: Up to 1000°C (based on material)"] }] },
+      { "id": "pipeline-services", "name": "Pipeline Services", "image": "./images/services/PIPELINE SERVICES.webp", "summary": "Complete pipeline fabrication, erection, SS hygienic piping, process pipeline installation, and maintenance for industrial and pharma plants.", "sections": [{ "title": "Pipeline Fabrication & Erection", "points": ["Fabrication of MS / SS / CS pipelines as per drawing", "Pipe cutting, beveling, and end preparation", "On-site pipeline erection with proper alignment", "Support fabrication & installation (pipe racks, hangers, clamps)"] }, { "title": "SS Pipeline Work (SS304 / SS316)", "points": ["Hygienic piping for Pharma & Food industries", "Orbital / TIG welding for leak-proof joints", "Polishing (Mirror / Matt finish)", "Pressure testing & inspection"] }, { "title": "Maintenance & Repair", "points": ["Leak detection & rectification", "Replacement of damaged pipelines", "Emergency repair services", "Shutdown maintenance work"] }] }
+    ];
 
-<!-- SERVICE MODAL -->
-<div class="modal-overlay" id="service-modal" onclick="closeServiceModal(event)">
-  <div class="modal-box" id="service-modal-box">
-    <div class="modal-header">
-      <h2 id="smodal-title"></h2>
-      <button class="modal-close" onclick="closeServiceModal()">✕</button>
-    </div>
-    <div id="smodal-img-wrap"></div>
-    <div class="modal-body" id="smodal-body"></div>
-    <div class="modal-footer">
-      <a href="#enquiry" class="btn-primary" onclick="closeServiceModal()" style="font-size:14px;padding:10px 24px">Request This Service →</a>
-    </div>
-  </div>
-</div>
+    const REVIEWS = [
+      { stars: 5, text: "SMLT Engineering supplied our entire pharma-grade SS316L filter housing system. Delivery was on time and the quality documentation was complete. Highly reliable vendor.", author: "Suresh Reddy", company: "Senior Purchase Manager, Hetero Drugs, Hyderabad", initials: "SR" },
+      { stars: 5, text: "We use SMLT for all our HEPA filter replacements and AHU maintenance. Their technicians are skilled and always adhere to our GMP cleanroom protocols.", author: "Priya Sharma", company: "Plant Engineering Head, Dr. Reddy's Laboratories", initials: "PS" },
+      { stars: 5, text: "Excellent fabrication quality for our SS process tanks. They understood our requirements quickly and delivered custom solutions within 3 weeks.", author: "Ravi Naidu", company: "Procurement Head, Divi's Laboratories", initials: "RN" },
+      { stars: 4, text: "Good supplier for filter cartridges and strainers. Competitive pricing and responsive team. Will continue with SMLT for future requirements.", author: "Mohammed Iqbal", company: "Materials Manager, Nagarjuna Fertilizers", initials: "MI" },
+      { stars: 5, text: "SMLT did our cleanroom HVAC installation to Class 10,000 standards. Excellent project management and their validation documentation was audit-ready.", author: "Kavitha Menon", company: "QA Director, Aurobindo Pharma", initials: "KM" },
+      { stars: 5, text: "We have been procuring HEPA filters, ducting services, and process equipment from SMLT for 5 years. Consistent quality and after-sales support.", author: "Anil Krishnan", company: "Engineering Manager, Granules India", initials: "AK" },
+      { stars: 4, text: "Very professional team for pipeline fabrication and insulation work. Their SS welding quality passed our third-party NDT testing without any issues.", author: "Deepak Joshi", company: "Project Engineer, HPCL Hyderabad", initials: "DJ" },
+      { stars: 5, text: "Prompt enquiry response, accurate technical specifications, and competitive pricing. SMLT is our go-to vendor for industrial filtration requirements.", author: "Sunita Patel", company: "VP Procurement, Piramal Enterprises", initials: "SP" }
+    ];
 
-<!-- PRODUCT MODAL -->
-<div class="modal-overlay" id="product-modal" onclick="closeProductModal(event)">
-  <div class="modal-box" id="product-modal-box">
-    <div class="modal-header">
-      <h2 id="pmodal-title"></h2>
-      <button class="modal-close" onclick="closeProductModal()">✕</button>
-    </div>
-    <div id="pmodal-img-wrap"></div>
-    <div class="modal-body" id="pmodal-body"></div>
-    <div class="modal-footer">
-      <a href="#enquiry" class="btn-primary" onclick="closeProductModal()" style="font-size:14px;padding:10px 24px">Enquire About This Product →</a>
-      <button onclick="copyProductEnquiry();closeProductModal();" style="padding:10px 24px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:14px;font-weight:600;color:var(--text-mid);font-family:'Syne',sans-serif;cursor:pointer;background:white;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-mid)'">Copy Product Name</button>
-    </div>
-  </div>
-</div>
+    // ===== STATE =====
+    let visibleCount = 12;
+    let currentSearch = '';
+    let currentCategory = 'all';
+    let currentProductId = null;
 
-<script>
-// ===== DATA =====
-const PRODUCTS = [
-  {"id":"absolute-pleated-filter-cartridge","name":"Absolute Pleated Filter Cartridge","image":"./images/products/ABSOLUTE PLEATED- FILTER CARTRIDGE.jpg","category":"filter","specifications":{"Filter Type":"Absolute Pleated Filter Cartridge","Media Type":"High Efficiency Microglass Fibre / Polypropylene (PP) Pleated Media","Efficiency Rating":"Absolute Filtration (99.9% efficiency)","Micron Rating":"0.1 – 50 µm (as per requirement)","Core Material":"SS304 / SS316 Perforated Support Core","Construction Type":"Pleated Cartridge Design for Maximum Surface Area & High Flow Rate","Filtration Type":"Surface + Depth Filtration for High Precision Removal","Temperature Resistance":"Up to 80°C – 120°C","Pressure Rating":"Up to 6 – 10 bar","Length Options":"10\", 20\", 30\", 40\"","Application":"Pharmaceuticals, Chemicals, Food & Beverage, Electronics, RO Pre-Filtration"}},
-  {"id":"air-oil-filter-cartridges","name":"Air & Oil Filter Cartridges","image":"./images/products/AIR & OIL FILTER CATRIDGES.jpg","category":"filter","specifications":{"Filter Type":"Air & Oil Filter Cartridges","Media Type":"High Efficiency Filter Paper / Micro glass Fibre / Synthetic Media","Micron Rating":"1 – 50 µm (Air); 3 – 25 µm (Oil)","Efficiency Class":"G3 / G4 / M5 / M6 / F7 / F8","Operating Pressure":"Air: Low Pressure HVAC; Oil: Up to 420 bar","Temperature Resistance":"Up to 70°C – 120°C","Application":"Compressors, Hydraulic Systems, Engines, HVAC Systems"}},
-  {"id":"air-filters-pocket-type","name":"Air Filters – Pocket Type","image":"./images/products/AIR FILTERS- POCKET TYPE.jpg","category":"air","specifications":{"Filter Type":"Air Filters – Pocket Type","Media Type":"Synthetic Fiber / Glass Fibre / Non-Woven Filter Media","Efficiency Class":"G3 / G4 / M5 / M6 / F7 / F8 / F9","Construction Type":"Multi-Pocket Design","Micron Rating":"1 – 25 µm","Temperature Resistance":"Up to 70°C – 90°C","Application":"HVAC Systems, AHU Units, Clean Rooms, Pharmaceutical Industries"}},
-  {"id":"basket-filters-cartridge-type","name":"Basket Filters – Cartridge Type","image":"./images/products/BASKET FILTERS – CATRIDGE TYPE.jpg","category":"filter","specifications":{"Filter Type":"Basket Filters – Cartridge Type","Media Type":"SS316 / SS304 Wire Mesh / Perforated Sheet","Micron Rating":"10 – 500 µm","Pressure Rating":"Up to 25 bar","Temperature Resistance":"Up to 200°C","Cleaning Type":"Washable / Reusable / Backflush Compatible","Application":"Chemical Industry, Oil & Gas, Water Treatment, Petrochemical Plants"}},
-  {"id":"candy-filters","name":"Candy Filters","image":"./images/products/CANDY FILTERS.png","category":"filter","specifications":{"Filter Type":"Candy Filters","Application":"Industrial Filtration Systems"}},
-  {"id":"chemical-receivers","name":"Chemical Receivers","image":"./images/products/CHEMICAL RECEIVERS.jpg","category":"tank","specifications":{"Product Type":"Chemical Receivers","Application":"Chemical Processing & Industrial Systems"}},
-  {"id":"compressed-air-filters-with-housings","name":"Compressed Air Filters with Housings","image":"./images/products/COMPRESSED AIR FILTERS WITH HOUSINGS.jpg","category":"air","specifications":{"Filter Type":"Compressed Air Filters with Housings","Body Material":"Aluminium Alloy / SS304 / SS316","Filter Elements":"Coalescing / Particulate / Activated Carbon","Micron Rating":"0.01 – 25 µm","Operating Pressure":"Up to 16 – 40 bar","Temperature Resistance":"Up to 60°C – 120°C","Application":"Compressor Systems, Pneumatic Tools, Pharmaceutical & Food Grade Air"}},
-  {"id":"double-cone-blender","name":"Double Cone Blender","image":"./images/products/DOUBLE CONE BLENDER.jpg","category":"pharma","specifications":{"Product Type":"Double Cone Blender","Material":"SS304 / SS316 (GMP Grade)","Surface Finish":"Mirror Polished / Matt Finish","Capacity Range":"5 Kg – 5000 Kg per batch","Working Principle":"Gentle Tumbling Action for Homogeneous Mixing","Drive System":"Flame Proof / Standard Motor with Gearbox","Application":"Pharmaceuticals, Chemicals, Food & Beverage"}},
-  {"id":"duplex-strainers","name":"Duplex Strainers","image":"./images/products/DUPLEX STRAINERS.jpg","category":"strainer","specifications":{"Filter Type":"Duplex Strainers","Body Material":"SS304 / SS316 / MS / Carbon Steel","Design Type":"Two Chamber Duplex – Continuous Operation","Micron Rating":"50 – 5000 µm","Pressure Rating":"Up to 10 – 40 bar","Temperature Resistance":"Up to 200°C","Application":"Water Systems, Oil & Gas, Chemical Industry, Petrochemical Plants"}},
-  {"id":"fluid-bed-dryer","name":"Fluid Bed Dryer","image":"./images/products/FLUID BED DRYER.jpg","category":"dryer","specifications":{"Product Type":"Fluid Bed Dryer","Material":"SS304 / SS316 (GMP Grade)","Design Standard":"GMP / FDA Compliant","Application":"Pharmaceuticals, Chemicals, Food Processing, Granule & Powder Drying"}},
-  {"id":"frp-filter-housings","name":"FRP Filter Housings","image":"./images/products/FRP FILTER HOUSINGS.jpg","category":"housing","specifications":{"Filter Type":"FRP Filter Housings","Body Material":"Fiberglass Reinforced Plastic","Cartridge Compatibility":"10\" / 20\" / 30\" / 40\"","Pressure Rating":"Up to 6 – 10 bar","Temperature Resistance":"Up to 60°C – 80°C","Application":"Water Treatment, RO Systems, Chemical Processing, Pharmaceuticals"}},
-  {"id":"gas-liquid-filtration-bag-type","name":"Gas & Liquid Filtration – Bag Type","image":"./images/products/GAS &LIQUID FILTERATION BAG TYPE.jpg","category":"filter","specifications":{"Filter Type":"Gas & Liquid Filtration – Bag Type","Application":"Industrial Gas & Liquid Filtration, Chemical Processing, Water Treatment"}},
-  {"id":"hepa-filters","name":"HEPA Filters – High Efficiency Particulate Air","image":"./images/products/HEPA-FILTERS HIGH EFFICIENCY PARTICULATE AIR.jpg","category":"air","specifications":{"Filter Type":"HEPA Filters","Media Type":"Microglass Fibre (High Density Pleated)","Efficiency Class":"H10 / H11 / H12 / H13 / H14 (EN 1822)","Micron Rating":"0.3 µm – 99.97% to 99.995% efficiency","Frame Material":"Aluminium / GI Steel / SS304 / SS316","Leak Test":"DOP / PAO Tested","Application":"Clean Rooms, Pharma, Hospitals, Operation Theatres, Electronics Manufacturing"}},
-  {"id":"integrated-process-containers","name":"Integrated Process Containers (IPC Bins)","image":"./images/products/INTEGREATED PROCESS CONTAINERS.jpg","category":"pharma","specifications":{"Product Type":"Integrated Process Containers (IPC Bins)","Material":"SS304 / SS316L (GMP Grade)","Surface Finish":"Mirror Polished / Electro-Polished","Capacity Range":"50 – 2000 Litre","Mobility":"Fixed / Movable with SS Castor Wheels","Cleaning Compatibility":"CIP / SIP Compatible","Application":"Pharma Manufacturing, API Plants, Granulation, Blending, Powder Handling"}},
-  {"id":"jacketed-reaction-pressure-vessel","name":"Jacketed Reaction Pressure Vessel","image":"./images/products/JACKED REACTION PRESSURE VESSEL.jpg","category":"tank","specifications":{"Product Type":"Jacketed Reaction Pressure Vessel","Material":"SS304 / SS316L (GMP / Industrial Grade)","Design Standard":"ASME / GMP / FDA Compliant","Capacity Range":"50 Litre – 20,000 Litre","Jacket Type":"Half Coil / Dimple / Full Jacket / Limpet Coil","Pressure Rating":"Up to 3 – 10 bar (Inner); Up to 3 – 6 bar (Jacket)","Application":"Pharmaceuticals, Chemicals, API Manufacturing, Food Processing"}},
-  {"id":"multiple-filter-housings","name":"Multiple Filter Housings","image":"./images/products/MULTIPLE FILTER- HOUSINGS.jpg","category":"housing","specifications":{"Filter Type":"Multiple Filter Housings","Body Material":"SS304 / SS316 / MS / FRP","Design Type":"Multi-Cartridge (3/5/7/9/12/19 Elements)","Pressure Rating":"Up to 10 – 25 bar","Application":"Water Treatment, Chemical Processing, Pharmaceuticals, RO Systems"}},
-  {"id":"panel-type-air-filters","name":"Panel Type Air Filters","image":"./images/products/PANEL TYPE AIR FILTERS.jpg","category":"air","specifications":{"Filter Type":"Panel Type Air Filters","Media Type":"Synthetic Fiber / Glass Fibre / Non-Woven","Efficiency Class":"G3 / G4 / M5 / M6 / F5 / F6","Temperature Resistance":"Up to 70°C – 90°C","Application":"HVAC Systems, AHU Units, Clean Rooms, Pharmaceutical Industries"}},
-  {"id":"paper-filters-panel-cartridge-type","name":"Paper Filters – Panel & Cartridge Type","image":"./images/products/PAPER FILTERS PANEL AND CATRIDGE TYPE.jpg","category":"filter","specifications":{"Filter Type":"Paper Filters – Panel & Cartridge","Media Type":"High Efficiency Filter Paper (Cellulose / Synthetic Fiber Blend)","Efficiency Class":"G3 / G4 / F5 / F6 / F7 / F8 / F9","Micron Rating":"1 – 25 µm","Application":"HVAC, AHU Units, Clean Rooms, Pharma, Paint Booths, Electronics"}},
-  {"id":"pharma-furniture","name":"Pharma Furniture","image":"./images/products/PHARMA FURNITURE.jpg","category":"pharma","specifications":{"Product Type":"Pharma Furniture","Material":"SS304 / SS316 (Hygienic Grade)","Design Standard":"GMP / FDA Compliant","Range":"Work Tables / Cabinets / Trolleys / Shoe Racks / Sink Units / Utility Racks","Application":"Pharma Manufacturing, Clean Rooms, Laboratories, Hospitals"}},
-  {"id":"pharma-spares","name":"Pharma Spares","image":"./images/products/PHARMA SPARES.jpg","category":"pharma","specifications":{"Product Type":"Pharma Spares","Material":"SS316L / PTFE / Silicone / EPDM / Viton (GMP)","Components":"Gaskets / Seals / O-Rings / Valves / Spray Balls / Ferrules / Sight Glass","Cleaning Compatibility":"CIP / SIP Compatible","Application":"Pharma Manufacturing, Biotech, Food & Beverage, Dairy Plants"}},
-  {"id":"pleated-type-cartridges","name":"Pleated Type Cartridges","image":"./images/products/PLEATED TYPE CARTRIDGES.jpg","category":"filter","specifications":{"Filter Type":"Pleated Type Cartridges","Application":"Water Treatment, Pharmaceuticals, Chemicals, Food & Beverage, Industrial Liquid Filtration"}},
-  {"id":"pollution-control-bag-cartridge-filters","name":"Pollution Control Bag/Cartridge Filters","image":"./images/products/POLLUTION CONTROL BAGCATRIDGE TYPE FILTERS.jpg","category":"filter","specifications":{"Filter Type":"Pollution Control Bag / Cartridge Type Filters","Media Type":"Polyester / PP / Acrylic / Nomex / PTFE Coated","Micron Rating":"1 – 100 µm","Temperature Resistance":"Up to 80°C – 260°C","Cleaning System":"Pulse Jet / Reverse Air / Mechanical Shaker","Application":"Cement Plants, Steel Plants, Power Plants, Boilers, Pharma, Chemical Industries"}},
-  {"id":"pp-filter-housings","name":"PP Filter Housings","image":"./images/products/PP FILTERS HOUSINGS.jpg","category":"housing","specifications":{"Filter Type":"PP Filter Housings","Body Material":"Polypropylene (PP) – Corrosion & Chemical Resistant","Application":"Water Treatment, Chemical Processing, Food & Beverage"}},
-  {"id":"pressure-nutch-filter","name":"Pressure Nutch Filter","image":"./images/products/PRESSURE NUTCH FILTER.jpg","category":"tank","specifications":{"Product Type":"Pressure Nutch Filter","Material":"SS304 / SS316L (GMP / Industrial Grade)","Design Standard":"GMP / FDA / ASME Compliant","Capacity Range":"50 – 5000 Litres","Pressure Rating":"Up to 3 – 6 bar","Filtration Type":"Cake Filtration / Solid-Liquid Separation","Application":"Pharmaceuticals, Chemicals, API Plants, Dyes & Intermediates"}},
-  {"id":"pressure-vessel","name":"Pressure Vessel","image":"./images/products/PRESSURE VESSEL.jpg","category":"tank","specifications":{"Product Type":"Pressure Vessel","Material":"SS304 / SS316 / Carbon Steel / MS","Design Standard":"ASME Section VIII / GMP","Capacity Range":"50 – 50,000 Litres","Pressure Rating":"Up to 3 – 40 bar","Temperature Range":"Up to 250°C","Application":"Pharmaceuticals, Chemicals, Oil & Gas, Water Treatment"}},
-  {"id":"ro-dm-water-plants","name":"R.O & D.M Water Plants","image":"./images/products/R.O & D.M WATER PLANTS.jpg","category":"water","specifications":{"System Type":"RO & DM Water Plants","RO Membrane Type":"Thin Film Composite (TFC) High Rejection Membranes","TDS Reduction":"Up to 95% – 99%","Operating Pressure":"Up to 10 – 25 bar","Recovery Rate":"50% – 75%","Control System":"Manual / Semi-Auto / Fully Automatic PLC","Application":"Pharmaceuticals, Chemicals, Boilers, Power Plants, Hospitals"}},
-  {"id":"single-cartridge-filters","name":"Single Cartridge Filters","image":"./images/products/SINGLE CARTRIDGE FILTERS.jpg","category":"filter","specifications":{"Filter Type":"Single Cartridge Filters","Micron Rating":"0.1 – 100 µm","Cartridge Size":"10\" / 20\" / 30\" / 40\"","Efficiency Rating":"Up to 99.9%","Pressure Rating":"Up to 6 – 10 bar","Application":"Water Treatment, Pharmaceuticals, Chemicals, Food & Beverage"}},
-  {"id":"single-cartridge-housings","name":"Single Cartridge Housings","image":"./images/products/SINGLE CARTRIDGE HOUSINGS.jpg","category":"housing","specifications":{"Filter Type":"Single Cartridge Filter Housings","Body Material":"SS304 / SS316 / MS / FRP","Pressure Rating":"Up to 10 – 25 bar","Surface Finish":"Mirror Polished / Matt Finish (SS)","Application":"Water Filtration, Chemical Industry, Pharmaceuticals, RO Systems"}},
-  {"id":"sintered-bronze-filter-cartridges","name":"Sintered Bronze Filter Cartridges","image":"./images/products/SINTERED BRONZE  FILTER CARTRIDGES.jpg","category":"filter","specifications":{"Filter Type":"Sintered Bronze Filter Cartridges","Micron Rating":"1 – 100 µm (absolute)","Pressure Rating":"Up to 200 – 300 bar","Temperature Resistance":"Up to 250°C – 400°C","Cleaning Type":"Backwash / Ultrasonic / Reusable","Application":"Pneumatic Systems, Hydraulic, Oil Filtration, Gas Filtration"}},
-  {"id":"sintered-cartridges","name":"Sintered Cartridges","image":"./images/products/SINTERED CARTRIDGES.jpg","category":"filter","specifications":{"Filter Type":"Sintered Filter Cartridges","Media Type":"Sintered SS316 / SS304 / Bronze / Titanium","Micron Rating":"0.5 – 100 µm","Pressure Rating":"Up to 200 – 420 bar","Temperature Resistance":"Up to 300°C – 600°C","Application":"Chemical, Petrochemical, Gas Filtration, Pharma High-Pressure Filtration"}},
-  {"id":"solution-preparation-tanks","name":"Solution Preparation Tanks","image":"./images/products/SOLUTION PREPARATION TANKS.jpg","category":"tank","specifications":{"Product Type":"Solution Preparation Tanks","Material":"SS304 / SS316L (GMP Grade)","Capacity Range":"50 – 10,000 Litre","Agitator Type":"Top / Bottom / Side Entry","Temperature Resistance":"Up to 150°C","Cleaning Compatibility":"CIP / SIP Compatible","Application":"Pharmaceuticals, Chemicals, Food & Beverage, Cosmetics, API Manufacturing"}},
-  {"id":"spun-bonded-filter-cartridges","name":"Spun Bonded / Thermal Bonded Filter Cartridges","image":"./images/products/SPUN BONDED- THERMAL BONDED- FILTER CARTRIDGES.jpg","category":"filter","specifications":{"Filter Type":"Spun Bonded / Thermal Bonded Filter Cartridges","Application":"Water Treatment, Pharmaceuticals, Chemicals, Food & Beverage"}},
-  {"id":"storage-tanks","name":"Storage Tanks","image":"./images/products/STORAGE TANKS.jpg","category":"tank","specifications":{"Product Type":"Storage Tanks","Material":"SS304 / SS316 / MS / FRP","Capacity Range":"50 – 100,000 Litres","Construction":"Vertical / Horizontal Cylindrical","Pressure Rating":"Atmospheric / Low Pressure / Pressure Vessel","Application":"Pharmaceuticals, Chemicals, Food & Beverage, Water Treatment, Oil & Gas"}},
-  {"id":"tray-dryer","name":"Tray Dryer","image":"./images/products/TRAY DRYER.jpg","category":"dryer","specifications":{"Product Type":"Tray Dryer","Material":"SS304 / SS316 / MS","Capacity Range":"50 Kg – 2000 Kg per batch","Heating System":"Steam / Electrical / Hot Water / Thermic Fluid","Temperature Range":"Up to 50°C – 150°C","Application":"Pharmaceuticals, Chemicals, Food Processing, Powder Drying"}},
-  {"id":"v-bank-mini-pleat-filters","name":"V-Bank Type Mini-Pleat Filters","image":"./images/products/V - BANK TYPE MINI-PLEAT FILTERS.jpg","category":"air","specifications":{"Filter Type":"V-Bank Type Mini-Pleat Filters","Efficiency Class":"MERV 13 / MERV 14 / MERV 15 / F7 / F8 / F9","Micron Rating":"0.3 – 10 µm","Construction Type":"V-Shape Rigid Frame Multi-Panel Mini Pleat","Application":"HVAC, AHU Units, Data Centers, Hospitals, Pharmaceutical Plants, Clean Rooms"}},
-  {"id":"vacuum-pump-spares","name":"Vacuum Pump Spares","image":"./images/products/VACUUM PUMP SPARES.jpg","category":"pharma","specifications":{"Product Type":"Vacuum Pump Spares","Components":"Rotors / Vanes / Seals / Gaskets / Filters / Bearings / Oil Mist Separators","Material":"SS304 / SS316 / Carbon Steel / PTFE / Graphite / Viton","Temperature Resistance":"Up to 80°C – 200°C","Application":"Pharma, Chemicals, Packaging, Food Processing, Power Plants"}},
-  {"id":"vacuum-trap","name":"Vacuum Trap","image":"./images/products/VACUUM TRAP.jpg","category":"pharma","specifications":{"Product Type":"Vacuum Trap","Material":"SS304 / SS316 / Borosilicate Glass","Capacity Range":"1 – 500 Litres","Function":"Prevents Liquid & Contaminants from Entering Vacuum Pump","Operating Pressure":"Full Vacuum to Atmospheric","Application":"Pharma Plants, Chemical Industry, Distillation, Filtration Units"}},
-  {"id":"vacuum-tray-dryer","name":"Vacuum Tray Dryer","image":"./images/products/VACUUM TRAY DRYER.jpg","category":"dryer","specifications":{"Product Type":"Vacuum Tray Dryer","Material":"SS304 / SS316 / SS316L (GMP Grade)","Design Standard":"GMP / FDA Compliant","Capacity Range":"50 Kg – 2000 Kg per batch","Operating Vacuum":"Up to 760 mm Hg","Heating System":"Steam / Hot Water / Thermic Fluid","Application":"Pharmaceuticals, API Drying, Heat Sensitive Materials"}},
-  {"id":"vibro-sifter","name":"Vibro Sifter","image":"./images/products/VIBRO SHIFTER.jpg","category":"pharma","specifications":{"Product Type":"Vibro Sifter","Material":"SS304 / SS316 (GMP Grade)","Screen Diameter":"12\" – 60\"","Mesh Size":"4 – 400 Mesh","Capacity Range":"50 – 5000 Kg/hr","Application":"Pharmaceuticals, Chemicals, Food Processing, Powder Sieving & Grading"}},
-  {"id":"water-plant-membranes","name":"Water Plant Membranes","image":"./images/products/WATER PLANT MEMBRANES.jpg","category":"water","specifications":{"Filter Type":"Water Plant Membranes (RO)","Membrane Type":"Thin Film Composite (TFC) Polyamide Spiral Wound","Micron Rating":"0.0001 µm","Salt Rejection":"95% – 99.5%","Operating Pressure":"Up to 15 – 69 bar","Application":"RO Water Plants, Drinking Water, Industrial Water Treatment, Pharmaceuticals"}},
-  {"id":"y-strainers","name":"Y-Strainers","image":"./images/products/Y-STRAINERS.jpg","category":"strainer","specifications":{"Filter Type":"Y-Strainers","Body Material":"SS304 / SS316 / MS / Carbon Steel","Design Type":"Y-Shape Compact Inline Strainer","Micron Rating":"50 – 5000 µm","Pressure Rating":"Up to 10 – 40 bar","Temperature Resistance":"Up to 200°C","Application":"Water Systems, Steam Lines, Oil & Gas, Pump Protection"}},
-  {"id":"yarn-wound-filter-cartridges","name":"Yarn Wound Filter Cartridges","image":"./images/products/YARN WOUND- FILTER CARTRIDGES.jpg","category":"filter","specifications":{"Filter Type":"Yarn Wound Filter Cartridges","Media Type":"PP / Cotton / Glass Fibre Yarn","Micron Rating":"1 – 100 µm (nominal)","Pressure Rating":"Up to 6 – 10 bar","Temperature Resistance":"Up to 60°C – 80°C","Application":"Water Treatment, Chemical Processing, Pharmaceuticals, Food & Beverage"}},
-  {"id":"zero-hold-up-filter-press","name":"Zero Hold Up Filter Press","image":"./images/products/ZERO HOLD UP FILTER PRESS.jpg","category":"filter","specifications":{"Product Type":"Zero Hold Up Filter Press","Material":"SS304 / SS316 / MS Rubber Lined / PP","Design Standard":"GMP / Industrial Hygienic Design","Operating Pressure":"Up to 7 – 15 bar","Filtration Area":"0.5 – 100 m²","Application":"Pharmaceuticals, Chemicals, API Plants, Food & Beverage, Fine Chemicals"}}
-];
-
-const SERVICES = [
-  {"id":"ahu-erection-and-services","name":"AHU Erection & Services","image":"./images/services/AHU ERECTION AND SERVICES.jpg","summary":"Complete supply, installation, maintenance, and repair of Air Handling Units for HVAC systems in industrial and pharmaceutical facilities.","sections":[{"title":"Erection & Installation","points":["Supply, shifting & positioning of AHU units","Alignment & leveling on MS base frame / concrete base","Vibration isolator installation (spring / rubber type)","Duct connection alignment with proper sealing","Outdoor & indoor AHU installation"]},{"title":"Maintenance Services","points":["Filter cleaning & replacement (Pre / Fine / HEPA)","Cooling coil cleaning (chemical & water wash)","Fan blower inspection & maintenance","Motor & belt alignment checking"]},{"title":"Repair & Breakdown Service","points":["Fan motor repair & replacement","Bearing replacement & lubrication","VFD & electrical panel troubleshooting","Emergency shutdown maintenance support"]},{"title":"Air Balancing Work","points":["Airflow measurement (CFM balancing)","Static pressure adjustment","Supply & return air balancing","Cleanroom pressure balancing support"]}],"equipment":["AHU (Air Handling Units)","FCU (Fan Coil Units)","Fresh Air Handling Units","Dehumidifier systems","HVAC duct systems"]},
-  {"id":"cleanroom-hvac-services","name":"Cleanroom HVAC Services","image":"./images/services/CLEANROOM HVAC SERVICES.jpg","summary":"Design, installation, and validation of HVAC systems for ISO and GMP-compliant cleanrooms in pharmaceutical and manufacturing facilities.","sections":[{"title":"Design & Installation","points":["HVAC system design as per ISO / GMP standards","Temperature, humidity & pressure control system setup","Laminar airflow & turbulence-free environment design","Air change per hour (ACH) calculation & planning"]},{"title":"Cleanroom Classification","points":["Class 100 / 1000 / 10,000 / 100,000 cleanroom setup","Pressure differential maintenance (Positive / Negative)","Particle control & contamination prevention","ISO & GMP compliance support"]},{"title":"HEPA Filter Services","points":["HEPA filter installation & replacement","DOP / PAO testing for filter integrity","Pre-filter & fine filter maintenance","Air purity level monitoring support"]},{"title":"Validation & Testing","points":["Airflow velocity testing","Particle count testing","Smoke test for airflow direction","HVAC qualification support (IQ/OQ/PQ)"]}]},
-  {"id":"ducting-services","name":"Ducting Services","image":"./images/services/DUCTING SERVICES.png","summary":"Fabrication, erection, and dismantling of GI, MS, SS, and aluminium duct systems for HVAC, pharma, and industrial ventilation applications.","sections":[{"title":"Ducting Erection","points":["GI / MS / SS304/SS316 / Aluminium duct installation","As per SMACNA / IS standards","Flanged joints / TDC / Slip & Drive connections","GI/MS angle supports and threaded rod suspension","Applications: HVAC, cleanrooms, pharma, food plants"]},{"title":"Ducting Removal (Dismantling)","points":["Safe dismantling of existing duct systems","Removal of insulation (if present)","Cutting & segment-wise dismantling","PPE and scaffolding safety compliance"]}]},
-  {"id":"fabrication-services","name":"Fabrication Services","image":"./images/services/FABRICATION SERVICES.png","summary":"Custom industrial fabrication of equipment, structures, piping, tanks, vessels, and skid units in SS, MS, carbon steel, aluminium, and FRP.","specifications":{"Service Type":"Industrial Fabrication Services","Fabrication Material":"SS304 / SS316 / MS / Carbon Steel / Aluminium / FRP","Fabrication Scope":"Equipment, Structures, Piping, Tanks, Vessels & Skid Units","Work Types":"Cutting / Bending / Rolling / Welding / Assembly / Machining","Welding Process":"TIG / MIG / ARC / Orbital Welding","Surface Finish":"Mirror Polished / Matt Finish / Sand Blasting / Epoxy Coating","Fabrication Standards":"GMP / ASME / IS Standards","Quality Control":"Dimensional Inspection / Pressure Testing / NDT","Application Industries":"Pharmaceuticals, Chemicals, Food & Beverage, Power Plants, Water Treatment, Oil & Gas"}},
-  {"id":"insulation-services","name":"Insulation Services","image":"./images/services/INSULATION SERVICES.png","summary":"Thermal, foam, and cold insulation services for pipelines, equipment, and duct systems in industrial, pharma, and HVAC applications.","sections":[{"title":"Pipe Line Puff Insulation","points":["Material: Rigid Polyurethane Foam (PUF)","Density: 36–40 kg/m³, Conductivity: 0.022–0.028 W/mK","Thickness: 25 – 150 mm","Cladding: GI Sheet / Aluminum / SS304","Temperature Range: -50°C to +120°C"]},{"title":"Thermal Insulation (Hot & Cold)","points":["Material: Glass Wool / Rock Wool / Ceramic Fiber","Density: 48–120 kg/m³, Thickness: 25–100 mm","Operating Temperature: Up to 750°C","Applications: Steam lines, hot oil lines, industrial pipelines"]},{"title":"Equipment & Duct Insulation","points":["Insulated Equipment: Tanks, vessels, reactors, boilers","Jacketing: SS304 / Aluminum / GI sheet","Duct insulation with glass wool / elastomeric foam","Temperature Resistance: Up to 1000°C (based on material)"]}]},
-  {"id":"pipeline-services","name":"Pipeline Services","image":"./images/services/PIPELINE SERVICES.webp","summary":"Complete pipeline fabrication, erection, SS hygienic piping, process pipeline installation, and maintenance for industrial and pharma plants.","sections":[{"title":"Pipeline Fabrication & Erection","points":["Fabrication of MS / SS / CS pipelines as per drawing","Pipe cutting, beveling, and end preparation","On-site pipeline erection with proper alignment","Support fabrication & installation (pipe racks, hangers, clamps)"]},{"title":"SS Pipeline Work (SS304 / SS316)","points":["Hygienic piping for Pharma & Food industries","Orbital / TIG welding for leak-proof joints","Polishing (Mirror / Matt finish)","Pressure testing & inspection"]},{"title":"Maintenance & Repair","points":["Leak detection & rectification","Replacement of damaged pipelines","Emergency repair services","Shutdown maintenance work"]}]}
-];
-
-const REVIEWS = [
-  {stars:5,text:"SMLT Engineering supplied our entire pharma-grade SS316L filter housing system. Delivery was on time and the quality documentation was complete. Highly reliable vendor.",author:"Suresh Reddy",company:"Senior Purchase Manager, Hetero Drugs, Hyderabad",initials:"SR"},
-  {stars:5,text:"We use SMLT for all our HEPA filter replacements and AHU maintenance. Their technicians are skilled and always adhere to our GMP cleanroom protocols.",author:"Priya Sharma",company:"Plant Engineering Head, Dr. Reddy's Laboratories",initials:"PS"},
-  {stars:5,text:"Excellent fabrication quality for our SS process tanks. They understood our requirements quickly and delivered custom solutions within 3 weeks.",author:"Ravi Naidu",company:"Procurement Head, Divi's Laboratories",initials:"RN"},
-  {stars:4,text:"Good supplier for filter cartridges and strainers. Competitive pricing and responsive team. Will continue with SMLT for future requirements.",author:"Mohammed Iqbal",company:"Materials Manager, Nagarjuna Fertilizers",initials:"MI"},
-  {stars:5,text:"SMLT did our cleanroom HVAC installation to Class 10,000 standards. Excellent project management and their validation documentation was audit-ready.",author:"Kavitha Menon",company:"QA Director, Aurobindo Pharma",initials:"KM"},
-  {stars:5,text:"We have been procuring HEPA filters, ducting services, and process equipment from SMLT for 5 years. Consistent quality and after-sales support.",author:"Anil Krishnan",company:"Engineering Manager, Granules India",initials:"AK"},
-  {stars:4,text:"Very professional team for pipeline fabrication and insulation work. Their SS welding quality passed our third-party NDT testing without any issues.",author:"Deepak Joshi",company:"Project Engineer, HPCL Hyderabad",initials:"DJ"},
-  {stars:5,text:"Prompt enquiry response, accurate technical specifications, and competitive pricing. SMLT is our go-to vendor for industrial filtration requirements.",author:"Sunita Patel",company:"VP Procurement, Piramal Enterprises",initials:"SP"}
-];
-
-// ===== STATE =====
-let visibleCount = 12;
-let currentSearch = '';
-let currentCategory = 'all';
-let currentProductId = null;
-
-// ===== RENDER SERVICES =====
-function renderServices() {
-  const grid = document.getElementById('services-grid');
-  grid.innerHTML = SERVICES.map(s => `
+    // ===== RENDER SERVICES =====
+    function renderServices ()
+    {
+      const grid = document.getElementById('services-grid');
+      grid.innerHTML = SERVICES.map(s => `
     <div class="service-card" onclick="openServiceModal('${s.id}')">
       <div class="service-card-img">
         <img src="${s.image}" alt="${s.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;service-card-img-placeholder&quot;><span style=&quot;font-size:48px;color:rgba(255,255,255,0.3)&quot;>⚙</span></div>'"/>
@@ -1258,15 +2351,16 @@ function renderServices() {
       </div>
     </div>
   `).join('');
-}
+    }
 
-// ===== RENDER REVIEWS =====
-function renderReviews() {
-  const track = document.getElementById('reviews-track');
-  const all = [...REVIEWS, ...REVIEWS]; // duplicate for loop
-  track.innerHTML = all.map(r => `
+    // ===== RENDER REVIEWS =====
+    function renderReviews ()
+    {
+      const track = document.getElementById('reviews-track');
+      const all = [...REVIEWS, ...REVIEWS]; // duplicate for loop
+      track.innerHTML = all.map(r => `
     <div class="review-card">
-      <div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+      <div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</div>
       <p class="review-text">"${r.text}"</p>
       <div class="review-author">
         <div class="review-avatar">${r.initials}</div>
@@ -1277,52 +2371,57 @@ function renderReviews() {
       </div>
     </div>
   `).join('');
-}
+    }
 
-// ===== PRODUCT FILTERING =====
-function getFilteredProducts() {
-  let products = PRODUCTS;
-  const q = currentSearch.toLowerCase().trim();
-  const cat = currentCategory;
-  if (q) {
-    products = products.filter(p => {
-      const specText = Object.values(p.specifications || {}).join(' ').toLowerCase();
-      return p.name.toLowerCase().includes(q) || specText.includes(q);
-    });
-  }
-  if (cat !== 'all') {
-    products = products.filter(p => p.category === cat);
-  }
-  return products;
-}
+    // ===== PRODUCT FILTERING =====
+    function getFilteredProducts ()
+    {
+      let products = PRODUCTS;
+      const q = currentSearch.toLowerCase().trim();
+      const cat = currentCategory;
+      if (q) {
+        products = products.filter(p =>
+        {
+          const specText = Object.values(p.specifications || {}).join(' ').toLowerCase();
+          return p.name.toLowerCase().includes(q) || specText.includes(q);
+        });
+      }
+      if (cat !== 'all') {
+        products = products.filter(p => p.category === cat);
+      }
+      return products;
+    }
 
-function getCategoryLabel(cat) {
-  const labels = {filter:'Filter Cartridge',housing:'Filter Housing',pharma:'Pharma Equipment',tank:'Tank / Vessel',strainer:'Strainer',dryer:'Dryer',water:'Water Treatment',air:'Air Filter'};
-  return labels[cat] || cat;
-}
+    function getCategoryLabel (cat)
+    {
+      const labels = { filter: 'Filter Cartridge', housing: 'Filter Housing', pharma: 'Pharma Equipment', tank: 'Tank / Vessel', strainer: 'Strainer', dryer: 'Dryer', water: 'Water Treatment', air: 'Air Filter' };
+      return labels[cat] || cat;
+    }
 
-function renderProducts() {
-  const filtered = getFilteredProducts();
-  const grid = document.getElementById('products-grid');
-  const noMsg = document.getElementById('no-products');
-  const countEl = document.getElementById('product-count');
-  const loadBtn = document.getElementById('load-more-btn');
-  const loadText = document.getElementById('load-more-text');
-  const loadCount = document.getElementById('load-more-count');
-  const shown = Math.min(visibleCount, filtered.length);
-  const remaining = filtered.length - shown;
-  countEl.textContent = `${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
-  if (filtered.length === 0) {
-    grid.innerHTML = '';
-    noMsg.style.display = 'block';
-    loadBtn.classList.add('hidden');
-    return;
-  }
-  noMsg.style.display = 'none';
-  grid.innerHTML = filtered.slice(0, shown).map(p => {
-    const specEntries = Object.entries(p.specifications || {}).slice(0, 2);
-    const preview = specEntries.map(([k,v]) => `<span style="font-weight:600">${k}:</span> ${v}`).join(' · ');
-    return `
+    function renderProducts ()
+    {
+      const filtered = getFilteredProducts();
+      const grid = document.getElementById('products-grid');
+      const noMsg = document.getElementById('no-products');
+      const countEl = document.getElementById('product-count');
+      const loadBtn = document.getElementById('load-more-btn');
+      const loadText = document.getElementById('load-more-text');
+      const loadCount = document.getElementById('load-more-count');
+      const shown = Math.min(visibleCount, filtered.length);
+      const remaining = filtered.length - shown;
+      countEl.textContent = `${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        noMsg.style.display = 'block';
+        loadBtn.classList.add('hidden');
+        return;
+      }
+      noMsg.style.display = 'none';
+      grid.innerHTML = filtered.slice(0, shown).map(p =>
+      {
+        const specEntries = Object.entries(p.specifications || {}).slice(0, 2);
+        const preview = specEntries.map(([k, v]) => `<span style="font-weight:600">${k}:</span> ${v}`).join(' · ');
+        return `
       <div class="product-card" onclick="openProductModal('${p.id}')">
         <div class="product-card-img">
           <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;product-card-img-placeholder&quot;>🔩</div>'"/>
@@ -1334,168 +2433,187 @@ function renderProducts() {
         </div>
       </div>
     `;
-  }).join('');
-  if (remaining > 0) {
-    loadBtn.classList.remove('hidden');
-    loadText.textContent = 'Load More Products';
-    loadCount.textContent = `(${remaining} more)`;
-  } else {
-    loadBtn.classList.add('hidden');
-  }
-}
-
-function loadMore() {
-  visibleCount += 12;
-  renderProducts();
-}
-
-document.getElementById('product-search').addEventListener('input', function() {
-  currentSearch = this.value;
-  visibleCount = 12;
-  renderProducts();
-});
-document.getElementById('category-filter').addEventListener('change', function() {
-  currentCategory = this.value;
-  visibleCount = 12;
-  renderProducts();
-});
-
-// ===== SERVICE MODAL =====
-function openServiceModal(id) {
-  const s = SERVICES.find(x => x.id === id);
-  if (!s) return;
-  document.getElementById('smodal-title').textContent = s.name;
-  const imgWrap = document.getElementById('smodal-img-wrap');
-  imgWrap.innerHTML = `<img src="${s.image}" alt="${s.name}" class="modal-img" onerror="this.parentElement.innerHTML='<div class=&quot;modal-img-placeholder&quot;>⚙</div>'"/>`;
-  const body = document.getElementById('smodal-body');
-  let html = '';
-  if (s.summary) {
-    html += `<p style="font-size:15px;color:var(--text-mid);line-height:1.7;margin-bottom:20px;font-weight:300;">${s.summary}</p>`;
-  }
-  if (s.sections) {
-    s.sections.forEach(sec => {
-      html += `<div class="modal-section"><h4>${sec.title}</h4><ul>${(sec.points||[]).map(p=>`<li>${p}</li>`).join('')}</ul></div>`;
-    });
-  }
-  if (s.specifications) {
-    html += `<div class="modal-section"><h4>Specifications</h4><div class="modal-specs-grid">`;
-    Object.entries(s.specifications).forEach(([k,v]) => {
-      html += `<div class="modal-spec-item"><div class="key">${k}</div><div class="val">${v}</div></div>`;
-    });
-    html += `</div></div>`;
-  }
-  if (s.equipment) {
-    html += `<div class="modal-section"><h4>Equipment Handled</h4><ul>${s.equipment.map(e=>`<li>${e}</li>`).join('')}</ul></div>`;
-  }
-  body.innerHTML = html;
-  document.getElementById('service-modal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeServiceModal(e) {
-  if (e && e.target !== document.getElementById('service-modal')) return;
-  document.getElementById('service-modal').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-// ===== PRODUCT MODAL =====
-function openProductModal(id) {
-  currentProductId = id;
-  const p = PRODUCTS.find(x => x.id === id);
-  if (!p) return;
-  document.getElementById('pmodal-title').textContent = p.name;
-  const imgWrap = document.getElementById('pmodal-img-wrap');
-  imgWrap.innerHTML = `<img src="${p.image}" alt="${p.name}" class="pmodal-header-img" onerror="this.parentElement.innerHTML='<div class=&quot;pmodal-header-img-placeholder&quot;>🔩</div>'"/>`;
-  const body = document.getElementById('pmodal-body');
-  let html = `<div style="margin-bottom:8px"><span style="display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;color:var(--accent);background:var(--accent-pale);padding:3px 10px;border-radius:4px;">${getCategoryLabel(p.category)}</span></div>`;
-  if (p.specifications && Object.keys(p.specifications).length > 0) {
-    html += `<table class="spec-table"><tbody>`;
-    Object.entries(p.specifications).forEach(([k,v]) => {
-      html += `<tr><td>${k}</td><td>${v}</td></tr>`;
-    });
-    html += `</tbody></table>`;
-  }
-  body.innerHTML = html;
-  document.getElementById('product-modal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeProductModal(e) {
-  if (e && e.target !== document.getElementById('product-modal')) return;
-  document.getElementById('product-modal').classList.remove('active');
-  document.body.style.overflow = '';
-}
-function copyProductEnquiry() {
-  const p = PRODUCTS.find(x => x.id === currentProductId);
-  if (!p) return;
-  navigator.clipboard.writeText(p.name).catch(()=>{});
-}
-
-// ===== FORM =====
-document.getElementById('enquiry-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  let valid = true;
-  const groups = this.querySelectorAll('.form-group');
-  groups.forEach(g => {
-    const inp = g.querySelector('[required]');
-    if (!inp) return;
-    g.classList.remove('has-error');
-    if (!inp.value.trim() || (inp.type === 'email' && !inp.value.includes('@'))) {
-      g.classList.add('has-error');
-      valid = false;
+      }).join('');
+      if (remaining > 0) {
+        loadBtn.classList.remove('hidden');
+        loadText.textContent = 'Load More Products';
+        loadCount.textContent = `(${remaining} more)`;
+      } else {
+        loadBtn.classList.add('hidden');
+      }
     }
-  });
-  if (!valid) return;
-  const btn = document.getElementById('form-submit-btn');
-  btn.disabled = true;
-  btn.querySelector('span').textContent = 'Sending…';
-  const data = new FormData(this);
-  const name = data.get('name');
-  const company = data.get('company');
-  const email = data.get('email');
-  const phone = data.get('phone');
-  const product = data.get('product');
-  const quantity = data.get('quantity');
-  const message = data.get('message');
-  const subject = encodeURIComponent(`Procurement Enquiry from ${name}${company?' – '+company:''}`);
-  const body = encodeURIComponent(
-    `New Enquiry from SMLT Engineering Website\n\n` +
-    `Name: ${name}\nCompany: ${company||'–'}\nEmail: ${email}\nPhone: ${phone}\n` +
-    `Product / Service: ${product||'–'}\nQuantity: ${quantity||'–'}\n\nRequirement:\n${message}`
-  );
-  setTimeout(() => {
-    window.location.href = `mailto:info@smltengineering.com?subject=${subject}&body=${body}`;
-    document.getElementById('enquiry-form').style.display = 'none';
-    document.getElementById('form-success-msg').classList.add('visible');
-  }, 600);
-});
 
-// ===== NAV =====
-document.getElementById('menu-btn').addEventListener('click', () => {
-  document.getElementById('mobile-nav').classList.toggle('open');
-});
-function closeMobile() { document.getElementById('mobile-nav').classList.remove('open'); }
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
-  document.getElementById('back-top').classList.toggle('visible', window.scrollY > 400);
-});
+    function loadMore ()
+    {
+      visibleCount += 12;
+      renderProducts();
+    }
 
-// ===== FADE IN OBSERVER =====
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.getElementById('product-search').addEventListener('input', function ()
+    {
+      currentSearch = this.value;
+      visibleCount = 12;
+      renderProducts();
+    });
+    document.getElementById('category-filter').addEventListener('change', function ()
+    {
+      currentCategory = this.value;
+      visibleCount = 12;
+      renderProducts();
+    });
 
-// ===== ESCAPE KEY =====
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    closeServiceModal();
-    closeProductModal();
-  }
-});
+    // ===== SERVICE MODAL =====
+    function openServiceModal (id)
+    {
+      const s = SERVICES.find(x => x.id === id);
+      if (!s) return;
+      document.getElementById('smodal-title').textContent = s.name;
+      const imgWrap = document.getElementById('smodal-img-wrap');
+      imgWrap.innerHTML = `<img src="${s.image}" alt="${s.name}" class="modal-img" onerror="this.parentElement.innerHTML='<div class=&quot;modal-img-placeholder&quot;>⚙</div>'"/>`;
+      const body = document.getElementById('smodal-body');
+      let html = '';
+      if (s.summary) {
+        html += `<p style="font-size:15px;color:var(--text-mid);line-height:1.7;margin-bottom:20px;font-weight:300;">${s.summary}</p>`;
+      }
+      if (s.sections) {
+        s.sections.forEach(sec =>
+        {
+          html += `<div class="modal-section"><h4>${sec.title}</h4><ul>${(sec.points || []).map(p => `<li>${p}</li>`).join('')}</ul></div>`;
+        });
+      }
+      if (s.specifications) {
+        html += `<div class="modal-section"><h4>Specifications</h4><div class="modal-specs-grid">`;
+        Object.entries(s.specifications).forEach(([k, v]) =>
+        {
+          html += `<div class="modal-spec-item"><div class="key">${k}</div><div class="val">${v}</div></div>`;
+        });
+        html += `</div></div>`;
+      }
+      if (s.equipment) {
+        html += `<div class="modal-section"><h4>Equipment Handled</h4><ul>${s.equipment.map(e => `<li>${e}</li>`).join('')}</ul></div>`;
+      }
+      body.innerHTML = html;
+      document.getElementById('service-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeServiceModal (e)
+    {
+      if (e && e.target !== document.getElementById('service-modal')) return;
+      document.getElementById('service-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
 
-// ===== INIT =====
-renderServices();
-renderProducts();
-renderReviews();
-</script>
+    // ===== PRODUCT MODAL =====
+    function openProductModal (id)
+    {
+      currentProductId = id;
+      const p = PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('pmodal-title').textContent = p.name;
+      const imgWrap = document.getElementById('pmodal-img-wrap');
+      imgWrap.innerHTML = `<img src="${p.image}" alt="${p.name}" class="pmodal-header-img" onerror="this.parentElement.innerHTML='<div class=&quot;pmodal-header-img-placeholder&quot;>🔩</div>'"/>`;
+      const body = document.getElementById('pmodal-body');
+      let html = `<div style="margin-bottom:8px"><span style="display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;color:var(--accent);background:var(--accent-pale);padding:3px 10px;border-radius:4px;">${getCategoryLabel(p.category)}</span></div>`;
+      if (p.specifications && Object.keys(p.specifications).length > 0) {
+        html += `<table class="spec-table"><tbody>`;
+        Object.entries(p.specifications).forEach(([k, v]) =>
+        {
+          html += `<tr><td>${k}</td><td>${v}</td></tr>`;
+        });
+        html += `</tbody></table>`;
+      }
+      body.innerHTML = html;
+      document.getElementById('product-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeProductModal (e)
+    {
+      if (e && e.target !== document.getElementById('product-modal')) return;
+      document.getElementById('product-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function copyProductEnquiry ()
+    {
+      const p = PRODUCTS.find(x => x.id === currentProductId);
+      if (!p) return;
+      navigator.clipboard.writeText(p.name).catch(() => { });
+    }
+
+    // ===== FORM =====
+    document.getElementById('enquiry-form').addEventListener('submit', function (e)
+    {
+      e.preventDefault();
+      let valid = true;
+      const groups = this.querySelectorAll('.form-group');
+      groups.forEach(g =>
+      {
+        const inp = g.querySelector('[required]');
+        if (!inp) return;
+        g.classList.remove('has-error');
+        if (!inp.value.trim() || (inp.type === 'email' && !inp.value.includes('@'))) {
+          g.classList.add('has-error');
+          valid = false;
+        }
+      });
+      if (!valid) return;
+      const btn = document.getElementById('form-submit-btn');
+      btn.disabled = true;
+      btn.querySelector('span').textContent = 'Sending…';
+      const data = new FormData(this);
+      const name = data.get('name');
+      const company = data.get('company');
+      const email = data.get('email');
+      const phone = data.get('phone');
+      const product = data.get('product');
+      const quantity = data.get('quantity');
+      const message = data.get('message');
+      const subject = encodeURIComponent(`Procurement Enquiry from ${name}${company ? ' – ' + company : ''}`);
+      const body = encodeURIComponent(
+        `New Enquiry from SMLT Engineering Website\n\n` +
+        `Name: ${name}\nCompany: ${company || '–'}\nEmail: ${email}\nPhone: ${phone}\n` +
+        `Product / Service: ${product || '–'}\nQuantity: ${quantity || '–'}\n\nRequirement:\n${message}`
+      );
+      setTimeout(() =>
+      {
+        window.location.href = `mailto:info@smltengineering.com?subject=${subject}&body=${body}`;
+        document.getElementById('enquiry-form').style.display = 'none';
+        document.getElementById('form-success-msg').classList.add('visible');
+      }, 600);
+    });
+
+    // ===== NAV =====
+    document.getElementById('menu-btn').addEventListener('click', () =>
+    {
+      document.getElementById('mobile-nav').classList.toggle('open');
+    });
+    function closeMobile () { document.getElementById('mobile-nav').classList.remove('open'); }
+    window.addEventListener('scroll', () =>
+    {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+      document.getElementById('back-top').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // ===== FADE IN OBSERVER =====
+    const observer = new IntersectionObserver((entries) =>
+    {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ===== ESCAPE KEY =====
+    document.addEventListener('keydown', e =>
+    {
+      if (e.key === 'Escape') {
+        closeServiceModal();
+        closeProductModal();
+      }
+    });
+
+    // ===== INIT =====
+    renderServices();
+    renderProducts();
+    renderReviews();
+  </script>
 </body>
+
 </html>
