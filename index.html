@@ -2079,23 +2079,23 @@
           <div class="form-row">
             <div class="form-group">
               <label>Full Name <span>*</span></label>
-              <input class="form-control" type="text" name="name" placeholder="Rajesh Kumar" required />
+              <input class="form-control" type="text" name="name" placeholder="Enter your name" required />
               <div class="form-error">Please enter your name</div>
             </div>
             <div class="form-group">
               <label>Company Name</label>
-              <input class="form-control" type="text" name="company" placeholder="Your Company Pvt. Ltd." />
+              <input class="form-control" type="text" name="company" placeholder="Enter your company name" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label>Email Address <span>*</span></label>
-              <input class="form-control" type="email" name="email" placeholder="you@company.com" required />
+              <input class="form-control" type="email" name="email" placeholder="Enter your email address" required />
               <div class="form-error">Please enter a valid email</div>
             </div>
             <div class="form-group">
               <label>Mobile Number <span>*</span></label>
-              <input class="form-control" type="tel" name="phone" placeholder="+91 98765 43210" required />
+              <input class="form-control" type="tel" name="phone" placeholder="Enter your phone number" required />
               <div class="form-error">Please enter your mobile number</div>
             </div>
           </div>
@@ -2432,7 +2432,7 @@
       if (remaining > 0) {
         loadBtn.classList.remove('hidden');
         loadText.textContent = 'Load More Products';
-        loadCount.textContent = `(${remaining} more)`;
+        loadCount.textContent = "";
       } else {
         loadBtn.classList.add('hidden');
       }
